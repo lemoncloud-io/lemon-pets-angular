@@ -1,16 +1,29 @@
+<div class="dropdown">
+    <i class="fa-solid fa-circle-plus"></i>
+</div>
+
 <div class="bottomBar text-center">
     <div class="row">
         <div class="col-4">
-            <div class="icon"><i class="fa-solid fa-house"></i></div>
-            <div class="text">메인</div>
+            <a routerLink="main">
+                <div class="icon"><i class="fa-solid fa-house"></i></div>
+                <div class="text">메인</div>
+            </a>
         </div>
         <div class="col-4">
+            <a routerLink="community">
             <div class="icon">  <i class="fa-solid fa-file-lines"></i></div>
             <div class="text">게시판</div>
+            </a>
         </div>
         <div class="col-4">
+            <a routerLink="mypage">
             <div class="icon"><i class="fa-solid fa-user"></i></div>
             <div class="text">마이페이지</div>
+            </a>
         </div>
     </div>
 </div>
+
+
+<router-outlet></router-outlet>
