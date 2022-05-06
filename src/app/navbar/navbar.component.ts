@@ -10,10 +10,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  check:boolean=false; 
+  check:boolean=!false; 
 
 
-  myfunction(){
+myfunction(){
     if(this.check==false){
     this.check=true;
     }

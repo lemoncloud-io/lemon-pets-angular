@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -9,6 +9,7 @@ import { BottombarComponent } from './bottombar/bottombar.component';
 import { ProductsComponent } from './products/products.component';
 import { CommunityComponent } from './community/community.component';
 import { MyPageComponent } from './my-page/my-page.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,13 @@ import { MyPageComponent } from './my-page/my-page.component';
     BottombarComponent,
     ProductsComponent,
     CommunityComponent,
-    MyPageComponent
+    MyPageComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

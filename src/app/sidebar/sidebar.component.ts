@@ -12,15 +12,15 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  check:boolean=!false; 
+  // check:boolean=false; 
 
-  myfunction(){
-    if(this.check==false){
-    this.check=true;
-    }
-    else{
-    this.check=false;
-    }
-    }
+  // myfunction(){
+  //   if(this.check==false){
+  //   this.check=true;
+  //   }
+  //   else{
+  //   this.check=false;
+  //   }
+  //   }
 
 }
