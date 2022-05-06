@@ -1,11 +1,16 @@
-<div class="navigation" [class.active]="check">
+ <div class="navigation">
     <div class="user">
-        <span class="userIcon">
-<img src="./assets/user-avatar-filled.svg" alt="">
-        </span>
-        <span class="userName">
-            앱활동
-        </span>
+        <div>
+            <span class="userIcon">
+    <img src="./assets/user-avatar-filled.svg" alt="">
+            </span>
+            <span class="userName">
+                앱활동
+            </span>
+        </div>
+        <div>
+            <span><a routerLink="editProfile"><i class="fa-solid fa-angle-right"></i></a></span>
+        </div>
     </div>
     <ul>
     <div class="subCatgory">
@@ -99,5 +104,3 @@
     </li>
 </ul>
 </div>
-
-<button (click)="myfunction()">click</button>
