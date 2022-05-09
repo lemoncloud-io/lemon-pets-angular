@@ -1,0 +1,15 @@
+@import "./src/styles.scss";
+.notifContent {
+  color: $secondary;
+}
+
+.notifDate {
+  color: $light;
+}
+
+.backward {
+  a {
+    text-decoration: none;
+    color: $secondary;
+  }
+}

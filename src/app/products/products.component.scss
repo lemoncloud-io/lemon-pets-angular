@@ -1,20 +1,19 @@
-@import './src/styles.scss';
+@import "./src/styles.scss";
 
-
-.product{
-    padding: 20px 0;
-    overflow-y: scroll;
+.product {
+  padding: 20px 0;
+  overflow-y: scroll;
 }
 
-.btn-round{
-border-radius: 20px;
-padding: 3px 10px;
+.btn-round {
+  border-radius: 20px;
+  padding: 3px 10px;
 }
 
-.btn-grey{
-    border: 2px solid $light-grey;
+.btn-grey {
+  border: 2px solid $light-grey;
 }
 
-.btn-purple{
-    border: 2px solid $primary;
+.btn-purple {
+  border: 2px solid $primary;
 }

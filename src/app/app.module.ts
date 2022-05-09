@@ -10,6 +10,7 @@ import { ProductsComponent } from './products/products.component';
 import { CommunityComponent } from './community/community.component';
 import { MyPageComponent } from './my-page/my-page.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     ProductsComponent,
     CommunityComponent,
     MyPageComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
