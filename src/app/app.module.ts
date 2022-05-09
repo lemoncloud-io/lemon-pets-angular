@@ -10,6 +10,7 @@ import { ProductsComponent } from './products/products.component';
 import { CommunityComponent } from './community/community.component';
 import { MyPageComponent } from './my-page/my-page.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
