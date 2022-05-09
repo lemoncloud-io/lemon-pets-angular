@@ -1,31 +1,31 @@
-@import './src/styles.scss';
+@import "./src/styles.scss";
 
-.bottomBar{
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: $white;
-    padding: 10px;
-    height: 70px;
+.bottomBar {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: $white;
+  padding: 10px;
+  height: 70px;
 
-    a{
-        text-decoration: none;
-        color: $primary;
+  a {
+    text-decoration: none;
+    color: $primary;
 
-        &:focus{
-            color: $secondary;
-        }
+    &:focus {
+      color: $secondary;
     }
+  }
 }
 
-.dropdown{
-    position: fixed;
-    right: 16px;
-    bottom: 75px;
+.dropdown {
+  position: fixed;
+  right: 16px;
+  bottom: 75px;
 
-    i{
-        font-size: 52px;
-        color: $primary;
-    }
+  i {
+    font-size: 52px;
+    color: $primary;
+  }
 }

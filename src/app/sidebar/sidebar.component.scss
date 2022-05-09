@@ -1,42 +1,39 @@
-@import './src/styles.scss';
+@import "./src/styles.scss";
 
-
-.navigation{
-    position: fixed;
-    left: 0;
-    width: 100%;
-    background-color: $white;
-    padding: 20px;
-    transition: 0.5s;
-    z-index: 1000;
-    .user{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .userIcon{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-        }
+.navigation {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background-color: $white;
+  padding: 20px;
+  transition: 0.5s;
+  z-index: 1000;
+  .user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .userIcon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
     }
+  }
 
-    .subCatgory{
-        margin: 20px 0;
-        span{
-            color: $secondary;
-        }
+  .subCatgory {
+    margin: 20px 0;
+    span {
+      color: $secondary;
     }
+  }
 
-    ul{
-
-        list-style: none;
-        li{
-            padding: 10px;
-            a{
-                text-decoration: none;
-                color: $light
-            }
-        }
+  ul {
+    list-style: none;
+    li {
+      padding: 10px;
+      a {
+        text-decoration: none;
+        color: $light;
+      }
     }
-
+  }
 }
