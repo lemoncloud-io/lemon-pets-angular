@@ -1,4 +1,4 @@
-@import './src/styles.scss';
+@import 'src/styles';
 
 .profile{
     // width: 100%;
@@ -14,7 +14,7 @@ position: relative;
 
         i{
             width: 30px;
-            height: 30px;            
+            height: 30px;
             border-radius: 50%;
             background-color: $primary;
             color: $white;

@@ -3,33 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { BottombarComponent } from './bottombar/bottombar.component';
-import { ProductsComponent } from './products/products.component';
-import { CommunityComponent } from './community/community.component';
-import { MyPageComponent } from './my-page/my-page.component';
-import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { CoreModule } from "./core/core.module";
+import { RouteReuseStrategy } from '@angular/router';
+import {SharedModule} from "./shared/shared.module";
+import {LayoutModule} from "./layout/layout.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    SidebarComponent,
-    BottombarComponent,
-    ProductsComponent,
-    CommunityComponent,
-    MyPageComponent,
-    EditProfileComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    IonicModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        IonicModule.forRoot(),
+        CoreModule,
+        LayoutModule,
+        SharedModule,
+    ],
+    providers: [
+        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

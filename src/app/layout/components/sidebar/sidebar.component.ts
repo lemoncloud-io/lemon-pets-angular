@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
+import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +12,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // check:boolean=false; 
+  // check:boolean=false;
 
   // myfunction(){
   //   if(this.check==false){
