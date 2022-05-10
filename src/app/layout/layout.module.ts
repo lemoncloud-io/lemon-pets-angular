@@ -10,6 +10,7 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
 import {SidebarComponent} from "./components/sidebar/sidebar.component";
 import {LayoutTabsComponent} from "./@tabs/tabs.component";
 import {LayoutRoutingModule} from "./layout-routing.module";
+import {ContentComponent} from "./@content/content.component";
 
 // *******************************************************************************
 // Components
@@ -26,6 +27,7 @@ import {LayoutRoutingModule} from "./layout-routing.module";
         BottombarComponent,
         NavbarComponent,
         SidebarComponent,
+        ContentComponent,
     ],
     providers: [],
 })

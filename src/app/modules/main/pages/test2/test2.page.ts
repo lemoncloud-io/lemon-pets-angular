@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {ModalController, NavController} from "@ionic/angular";
 
 @Component({
-    selector: 'app-detail-page',
-    templateUrl: './detail.page.html',
-    styleUrls: ['./detail.page.scss']
+    selector: 'app-test-page',
+    templateUrl: './test2.page.html',
+    styleUrls: ['./test2.page.scss']
 })
-export class DetailPage implements OnInit {
+export class Test2Page implements OnInit {
 
     constructor(private navController: NavController,
                 private modalController: ModalController) { }
@@ -24,7 +24,5 @@ export class DetailPage implements OnInit {
         });
     }
 
-    onClickNavigate() {
-        this.navController.navigateForward('main/test');
-    }
+
 }

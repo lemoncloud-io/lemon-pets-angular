@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-back-button slot="start" *ngIf="level > 0"></ion-back-button>
+        <ion-title>My Modal Level: {{ level }}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismissModal()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    TEST
+    TEST
+    TESTr
+    <!-- Open another modal from code -->
+    <ion-button expand="full" color="secondary" (click)="goForward()">
+        <ion-icon name="arrow-forward" slot="end"></ion-icon>
+        Next
+    </ion-button>
+
+</ion-content>
