@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {LayoutTabsComponent} from "./@tabs/tabs.component";
-import {LayoutBlankComponent} from "./@blank/blank.component";
 
 const routes: Routes = [
     {
