@@ -1,31 +1,21 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {LayoutDefaultComponent} from "./layout/@default/default.component";
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
-        path: 'profile',
-        loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
-        component: LayoutDefaultComponent,
-    },
-    {
-        path: 'community',
-        loadChildren: () => import('./modules/community/community.module').then(m => m.CommunityModule),
-        component: LayoutDefaultComponent,
-    },
-    {
-        path: 'main',
-        loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule),
-        component: LayoutDefaultComponent,
+        path: '',
+        loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)
     },
     {
         path: '**',
-        redirectTo: 'main'
+        redirectTo: ''
     },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+      RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

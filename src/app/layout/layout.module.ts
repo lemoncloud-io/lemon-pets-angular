@@ -6,19 +6,25 @@ import {SharedModule} from "../shared/shared.module";
 // *******************************************************************************
 // Layouts
 import {LayoutBlankComponent} from "./@blank/blank.component";
-import {LayoutDefaultComponent} from "./@default/default.component";
 import {BottombarComponent} from "./components/bottombar/bottombar.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {SidebarComponent} from "./components/sidebar/sidebar.component";
+import {LayoutTabsComponent} from "./@tabs/tabs.component";
+import {LayoutRoutingModule} from "./layout-routing.module";
 
 // *******************************************************************************
 // Components
 
 @NgModule({
-    imports: [CommonModule, RouterModule, SharedModule],
+    imports: [
+        CommonModule,
+        RouterModule,
+        SharedModule,
+        LayoutRoutingModule,
+    ],
     declarations: [
-        LayoutDefaultComponent,
         LayoutBlankComponent,
+        LayoutTabsComponent,
         BottombarComponent,
         NavbarComponent,
         SidebarComponent,
