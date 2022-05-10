@@ -10,10 +10,10 @@
       마이페이지
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">전체</a>
-      <a class="dropdown-item" href="#">강아지</a>
-      <a class="dropdown-item" href="#">고양이</a>
-      <a class="dropdown-item" href="#">기타</a>
+      <a class="dropdown-item" routerLink="main">전체</a>
+      <a class="dropdown-item" routerLink="dog">강아지</a>
+      <a class="dropdown-item" routerLink="cat">고양이</a>
+      <a class="dropdown-item" routerLink="etc">기타</a>
     </div>
   </div>
   <div class="icon-container">
@@ -39,7 +39,7 @@
 >
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      <div class="titleConainer px-4 py-2">
+      <div class="titleConainer p-4">
         <h5 class="modal-title">언어변경</h5>
         <button
           type="button"
@@ -50,8 +50,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body p-4">
-        <div class="py-4">
+      <div class="modal-body px-4 pb-4">
+        <div class="pb-4">
           <div class="form-check">
             <input
               class="form-check-input"

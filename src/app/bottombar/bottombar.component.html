@@ -1,5 +1,19 @@
 <div class="dropdown">
-  <i class="fa-solid fa-circle-plus"></i>
+  <a
+    class="dropdown-toggle"
+    id="dropdownMenuButton"
+    data-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <i class="fa-solid fa-plus centerMid"></i
+  ></a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" routerLink="main">전체</a>
+    <a class="dropdown-item" routerLink="dog">강아지</a>
+    <a class="dropdown-item" routerLink="cat">고양이</a>
+    <a class="dropdown-item" routerLink="etc">기타</a>
+  </div>
 </div>
 
 <div class="bottomBar text-center">
