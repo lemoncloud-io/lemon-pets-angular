@@ -1,0 +1,19 @@
+@import "./src/styles.scss";
+
+.product {
+  padding: 20px 0;
+  overflow-y: scroll;
+}
+
+.btn-round {
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+.btn-grey {
+  border: 2px solid $light-grey;
+}
+
+.btn-purple {
+  border: 2px solid $primary;
+}

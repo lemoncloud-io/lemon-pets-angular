@@ -11,6 +11,9 @@ import { CommunityComponent } from './community/community.component';
 import { MyPageComponent } from './my-page/my-page.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { NotificationComponent } from './notification/notification.component';
+import { DogComponent } from './categories/dog/dog.component';
+import { CatComponent } from './categories/cat/cat.component';
+import { EtcComponent } from './categories/etc/etc.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { NotificationComponent } from './notification/notification.component';
     CommunityComponent,
     MyPageComponent,
     EditProfileComponent,
-    NotificationComponent
+    NotificationComponent,
+    DogComponent,
+    CatComponent,
+    EtcComponent
   ],
   imports: [
     BrowserModule,
