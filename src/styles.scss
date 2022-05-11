@@ -6,11 +6,11 @@ $light: rgba(51, 51, 51, 0.6);
 $light-grey: #dfdfdf;
 $white: #ffffff;
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+// * {
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+// }
 
 // some Common Classes
 
@@ -34,14 +34,28 @@ $white: #ffffff;
   justify-content: right;
 }
 
+// all common buttons
 
-.btn{
+.btn {
   font-size: 11px;
 }
 
-.btn-purple-filled{
+.btn-purple-filled {
   background-color: $primary;
   color: $white;
   width: 100%;
   padding: 10px;
+}
+
+.btn-round {
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+.btn-grey {
+  border: 2px solid $light-grey;
+}
+
+.btn-purple {
+  border: 2px solid $primary;
 }

@@ -14,6 +14,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { DogComponent } from './categories/dog/dog.component';
 import { CatComponent } from './categories/cat/cat.component';
 import { EtcComponent } from './categories/etc/etc.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EtcComponent } from './categories/etc/etc.component';
     NotificationComponent,
     DogComponent,
     CatComponent,
-    EtcComponent
+    EtcComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
