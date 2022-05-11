@@ -3,19 +3,17 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'lemon-pets-angular';
-  check:boolean=false; 
+  check: boolean = false;
 
-
-  myfunction(){
-    if(this.check==false){
-    this.check=true;
+  myfunction() {
+    if (this.check == false) {
+      this.check = true;
+    } else {
+      this.check = false;
     }
-    else{
-    this.check=false;
-    }
-    }
+  }
 }
