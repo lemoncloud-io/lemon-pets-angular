@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row product">
+  <div class="row product" *ngFor="let item of items">
     <div class="col-12">
       <div class="row">
         <div class="col-4 centerMid">
@@ -20,17 +20,17 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12 font-weight-bold">캣타워 팔아요</div>
+            <div class="col-12 font-weight-bold">{{ item.name }}</div>
           </div>
           <div class="row">
             <div class="col-12">
               <span class="pr-2">컨댕이</span> <span class="pr-2">|</span>
-              <span class="pr-2">2021.10.20</span>
+              <span class="pr-2">{{ item.date }}</span>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <span class="font-weight-bold mr-4">80,000원</span>
+              <span class="font-weight-bold mr-4">{{ item.price }}</span>
               <button class="btn btn-round btn-purple">거래진행중</button>
             </div>
           </div>
@@ -38,7 +38,7 @@
       </div>
     </div>
   </div>
-  <div class="row product">
+  <!-- <div class="row product">
     <div class="col-12">
       <div class="row">
         <div class="col-4 centerMid">
@@ -74,5 +74,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

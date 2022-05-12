@@ -34,6 +34,13 @@ $white: #ffffff;
   justify-content: right;
 }
 
+.backward {
+  a {
+    text-decoration: none;
+    color: $secondary;
+  }
+}
+
 // all common buttons
 
 .btn {

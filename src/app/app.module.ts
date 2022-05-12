@@ -15,6 +15,10 @@ import { DogComponent } from './categories/dog/dog.component';
 import { CatComponent } from './categories/cat/cat.component';
 import { EtcComponent } from './categories/etc/etc.component';
 import { MainComponent } from './main/main.component';
+import { WritePostComponent } from './write-post/write-post.component';
+import { WriteCatpostComponent } from './write-post/write-catpost/write-catpost.component';
+import { WriteDogpostComponent } from './write-post/write-dogpost/write-dogpost.component';
+import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-post.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { MainComponent } from './main/main.component';
     DogComponent,
     CatComponent,
     EtcComponent,
-    MainComponent
+    MainComponent,
+    WritePostComponent,
+    WriteCatpostComponent,
+    WriteDogpostComponent,
+    WriteEtcPostComponent
   ],
   imports: [
     BrowserModule,

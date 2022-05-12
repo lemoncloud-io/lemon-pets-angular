@@ -1,0 +1,8 @@
+@import "./src/styles.scss";
+
+.selectTopic {
+  @include flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: $light;
+}
