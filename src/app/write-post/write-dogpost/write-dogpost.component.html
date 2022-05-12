@@ -1,34 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
-  <div class="dropdown">
-    <button
-      class="btn dropdown-toggle font-weight-bold"
-      type="button"
-      id="dropdownMenuButton"
-      data-toggle="dropdown"
-      aria-expanded="false"
-    >
-      마이페이지
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" routerLink="main">전체</a>
-      <a class="dropdown-item" routerLink="dog">강아지</a>
-      <a class="dropdown-item" routerLink="cat">고양이</a>
-      <a class="dropdown-item" routerLink="etc">기타</a>
+<div class="container">
+  <div class="row backward">
+    <div class="col-12 p-3">
+      <a routerLink="/main"
+        ><i class="fa-solid fa-angle-left"></i>
+        <span class="font-weight-bold ml-3">강아지 게시글 작성</span></a
+      >
     </div>
   </div>
-  <div class="icon-container">
-    <a data-toggle="modal" data-target=".bd-example-modal-sm" class="mr-3"
-      ><img src="./assets/translate_black_24dp.png" alt=""
-    /></a>
-    <a (click)="myfunction()"
-      ><img src="./assets/menu_black_24dp.svg" alt=""
-    /></a>
-    <a routerLink="notification" class="ml-3"
-      ><img src="./assets/notifications_none_black_24dp.svg" alt=""
-    /></a>
+  <hr />
+  <div class="row">
+    <div class="col-12">
+      <a
+        data-toggle="modal"
+        data-target=".bd-example-modal-sm"
+        class="selectTopic"
+      >
+        <span>주제를 선택해주세요.</span>
+        <i class="fa-solid fa-caret-down"></i>
+      </a>
+    </div>
   </div>
-</nav>
-<app-sidebar [class.active]="check"></app-sidebar>
+  <div class="row"></div>
+</div>
+
+<!-- modal  -->
 
 <div
   class="modal fade bd-example-modal-sm"
@@ -40,7 +35,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="titleConainer p-4">
-        <h5 class="modal-title">언어변경</h5>
+        <h5 class="modal-title">게시글 주제선택</h5>
         <button
           type="button"
           class="close"
@@ -62,7 +57,7 @@
               checked
             />
             <label class="form-check-label mx-1" for="exampleRadios1">
-              한국어
+              자랑하기
             </label>
           </div>
           <div class="form-check">
@@ -74,7 +69,7 @@
               value="option2"
             />
             <label class="form-check-label mx-1" for="exampleRadios2">
-              English
+              판매
             </label>
           </div>
         </div>
