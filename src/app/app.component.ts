@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {LemonAuthService} from "@core/services/lemon-auth.service";
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'lemon-pets-angular';
   check: boolean = false;
+
+  constructor(private readonly authService: LemonAuthService) {
+    this.authService.pollingCredentials$().subscribe();
+  }
 
   myfunction() {
     if (this.check == false) {
