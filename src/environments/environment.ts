@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  env: 'local',
+  project: 'pets',
+  oAuthEndpoint: 'https://dev.oauth.lemoncloud.io',
+  redirectUrl: 'http://localhost:4200/auth/oauth-response',
+  petsApiEndpoint: 'https://api.pets-like.com/d1',
+  imageEndpoint: 'https://image.lemoncloud.io',
 };
 
 /*

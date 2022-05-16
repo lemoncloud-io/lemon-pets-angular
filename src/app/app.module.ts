@@ -19,6 +19,7 @@ import { WritePostComponent } from './write-post/write-post.component';
 import { WriteCatpostComponent } from './write-post/write-catpost/write-catpost.component';
 import { WriteDogpostComponent } from './write-post/write-dogpost/write-dogpost.component';
 import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-post.component';
+import {CoreModule} from "@core/core.module";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-pos
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
