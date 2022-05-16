@@ -19,11 +19,11 @@ export class PetsApiService {
         this.isLocal = this.utils.isLocalEnv();
     }
 
-    fetchPets$(params: Params) {
+    fetchContents$(params: Params) {
         return this.httpClient.request$(
             'GET',
             environment.petsApiEndpoint,
-            '/pets',
+            '/contents',
             this.utils.deleteUndefinedProperty(params)
         );
     }
