@@ -9,15 +9,19 @@
   ></a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" routerLink="writedogpost"
-      ><img src="./assets/dogIcon.svg" alt="" /> {{ listTags.list[0].name }}</a
+    <a
+      class="dropdown-item"
+      routerLink="writedogpost"
+      *ngFor="let items of listTags.list"
+      ><img src="./assets/dogIcon.svg" alt="" />
+      {{ language === "ko" ? items.name : items.nameEn }}</a
     >
-    <a class="dropdown-item" routerLink="writecatpost"
-      ><img src="./assets/catIcon.svg" alt="" /> {{ listTags.list[1].name }}</a
+    <!-- <a class="dropdown-item" routerLink="writecatpost"
+      ><img src="./assets/catIcon.svg" alt="" /> {{ listTags.list[1]?.name }}</a
     >
     <a class="dropdown-item" routerLink="writeetcpost"
-      ><img src="./assets/etcIcon.svg" alt="" /> {{ listTags.list[2].name }}</a
-    >
+      ><img src="./assets/etcIcon.svg" alt="" /> {{ listTags.list[2]?.name }}</a
+    > -->
   </div>
 </div>
 
