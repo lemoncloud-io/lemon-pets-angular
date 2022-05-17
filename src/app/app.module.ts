@@ -47,9 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     CoreModule,
-    WriteEtcPostComponent,
+    HttpClientModule
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
