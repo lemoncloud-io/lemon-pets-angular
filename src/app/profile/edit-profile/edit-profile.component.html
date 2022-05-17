@@ -8,8 +8,16 @@
   <div class="row profile">
     <div class="col-12 centerMid">
       <div class="imageContaine">
-        <img src="./assets/user-avatar-filled.svg" alt="" />
-        <i class="fa-solid fa-pen centerMid"></i>
+        <img src="{{ updateProfile.url }}" alt="" />
+        <label for="file-upload" class="custom-file-upload">
+          <i class="fa-solid fa-pen centerMid"></i>
+          <input
+            type="file"
+            value="uploadedFile"
+            (change)="onChange($event)"
+            id="file-upload"
+          />
+        </label>
       </div>
     </div>
     <div class="col-12">
