@@ -52,7 +52,7 @@
       </div>
       <div class="modal-body px-4 pb-4">
         <div class="pb-4">
-          <div class="form-check">
+          <!-- <div class="form-check">
             <input
               class="form-check-input"
               type="radio"
@@ -64,8 +64,8 @@
             <label class="form-check-label mx-1" for="exampleRadios1">
               한국어
             </label>
-          </div>
-          <div class="form-check">
+          </div> -->
+          <div class="form-check" *ngFor="let language of listLanguage.list">
             <input
               class="form-check-input"
               type="radio"
@@ -74,7 +74,7 @@
               value="option2"
             />
             <label class="form-check-label mx-1" for="exampleRadios2">
-              English
+              {{ language === "ko" ? language.name : language.nameEn }}
             </label>
           </div>
         </div>

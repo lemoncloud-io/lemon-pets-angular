@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PublicApisService } from '../services/public-apis.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-navbar',
@@ -6,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
+  listLanguage: any = [];
+  // language = AppComponent.language;
+  language: string = 'en';
+  constructor(private action: PublicApisService) {
+    this.action.getLanguage().subscribe((data) => {
+      this.listLanguage = data;
+      console.log(this.listLanguage);
+    });
+  }
 
   ngOnInit(): void {}
 
@@ -19,4 +29,6 @@ export class NavbarComponent implements OnInit {
       this.check = false;
     }
   }
+
+  changeLanguage() {}
 }
