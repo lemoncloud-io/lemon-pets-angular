@@ -19,6 +19,7 @@ import { WritePostComponent } from './write-post/write-post.component';
 import { WriteCatpostComponent } from './write-post/write-catpost/write-catpost.component';
 import { WriteDogpostComponent } from './write-post/write-dogpost/write-dogpost.component';
 import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-post.component';
+import {CoreModule} from "@core/core.module";
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -39,6 +40,13 @@ import { HttpClientModule } from '@angular/common/http';
     WritePostComponent,
     WriteCatpostComponent,
     WriteDogpostComponent,
+    WriteEtcPostComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    CoreModule,
     WriteEtcPostComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],

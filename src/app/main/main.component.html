@@ -1,4 +1,43 @@
 <div class="container">
+  <div class="row product" *ngFor="let content of fetchedContents">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-4 centerMid">
+          <a routerLink="../product">
+            <img [src]="content.images[0] || DEFAULT_IMAGE" alt="" />
+          </a>
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class="col-5">
+              <button class="btn btn-round btn-grey">{{ content.category }}</button>
+            </div>
+            <div class="col-7 text-right">
+              <span class="p-1"><i class="fa-regular fa-heart"></i></span>
+              <span class="p-1">{{ content.bookmarks || 0 }}</span>
+              <span class="p-1"><i class="fa-regular fa-message"></i></span>
+              <span class="p-1 pr-3">{{ content.comments || 0 }}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 font-weight-bold">{{ content.text }}</div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <span class="pr-2">{{ content.author.name }}</span> <span class="pr-2">|</span>
+              <span class="pr-2">{{ content.postedAt | date: 'yyyy.MM.dd'  }}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <span class="font-weight-bold mr-4">TODO</span>
+              <button class="btn btn-round btn-purple">TODO</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row product" *ngFor="let item of items">
     <div class="col-12">
       <div class="row">

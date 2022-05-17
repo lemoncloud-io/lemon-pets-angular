@@ -26,6 +26,10 @@ const routes: Routes = [
   { component: WriteCatpostComponent, path: 'writecatpost' },
   { component: WriteDogpostComponent, path: 'writedogpost' },
   { component: WriteEtcPostComponent, path: 'writeetcpost' },
+  {
+    path: 'auth',
+    loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
   { path: '**', redirectTo: 'main' },
 ];
 
