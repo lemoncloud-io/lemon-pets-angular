@@ -7,13 +7,15 @@
       data-toggle="dropdown"
       aria-expanded="false"
     >
-      마이페이지
+      {{ language === "ko" ? "마이페이지" : "My Page" }}
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" routerLink="main">전체</a>
-      <a class="dropdown-item" routerLink="dog">강아지</a>
-      <a class="dropdown-item" routerLink="cat">고양이</a>
-      <a class="dropdown-item" routerLink="etc">기타</a>
+      <a
+        class="dropdown-item"
+        routerLink="main"
+        *ngFor="let category of listCategories.list"
+        >{{ language === "ko" ? category.name : category.nameEn }}</a
+      >
     </div>
   </div>
   <div class="icon-container">
@@ -40,7 +42,9 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="titleConainer p-4">
-        <h5 class="modal-title">언어변경</h5>
+        <h5 class="modal-title">
+          {{ language === "ko" ? "언어변경" : "Change Language" }}
+        </h5>
         <button
           type="button"
           class="close"
@@ -52,33 +56,27 @@
       </div>
       <div class="modal-body px-4 pb-4">
         <div class="pb-4">
-          <!-- <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios1"
-              value="option1"
-              checked
-            />
-            <label class="form-check-label mx-1" for="exampleRadios1">
-              한국어
-            </label>
-          </div> -->
-          <div class="form-check" *ngFor="let language of listLanguage.list">
+          <div class="form-check" *ngFor="let item of listLanguage.list">
             <input
               class="form-check-input"
               type="radio"
               name="exampleRadios"
               id="exampleRadios2"
-              value="option2"
+              value="{{ item.code }}"
+              [(ngModel)]="languageValue"
             />
             <label class="form-check-label mx-1" for="exampleRadios2">
-              {{ language === "ko" ? language.name : language.nameEn }}
+              {{ language === "ko" ? item.name : item.nameEn }}
             </label>
           </div>
         </div>
-        <button class="btn btn-purple-filled text-center">적용하기</button>
+        <button
+          class="btn btn-purple-filled text-center"
+          (click)="applyLanguage()"
+          data-dismiss="modal"
+        >
+          {{ language === "ko" ? "적용하기" : "Apply" }}
+        </button>
       </div>
     </div>
   </div>

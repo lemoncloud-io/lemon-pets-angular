@@ -1,2 +1,2 @@
-<app-navbar></app-navbar>
-<app-bottombar></app-bottombar>
+<app-navbar (onLanguagechange)="onLanguageValueReceived($event)"></app-navbar>
+<app-bottombar [language]="changesLanguage"></app-bottombar>

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PublicApisService } from '../services/public-apis.service';
-import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +8,19 @@ import { AppComponent } from '../app.component';
 })
 export class NavbarComponent implements OnInit {
   listLanguage: any = [];
-  // language = AppComponent.language;
-  language: string = 'en';
+  listCategories: any = [];
+  @Output() onLanguagechange = new EventEmitter<{ languageValue: string }>();
+  languageValue: '';
+  language = '';
   constructor(private action: PublicApisService) {
     this.action.getLanguage().subscribe((data) => {
       this.listLanguage = data;
       console.log(this.listLanguage);
+    });
+
+    this.action.getCategories().subscribe((data) => {
+      this.listCategories = data;
+      console.log(this.listCategories);
     });
   }
 
@@ -30,5 +36,10 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  changeLanguage() {}
+  applyLanguage() {
+    this.language = this.languageValue;
+    this.onLanguagechange.emit({
+      languageValue: this.language,
+    });
+  }
 }
