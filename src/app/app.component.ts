@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { LemonAuthService } from '@core/services/lemon-auth.service';
-import {} from './services/public-apis.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,8 @@ import {} from './services/public-apis.service';
 export class AppComponent {
   title = 'lemon-pets-angular';
   check: boolean = false;
-  public static language: string = 'ko';
+  changesLanguage = '';
+
   constructor(private readonly authService: LemonAuthService) {
     this.authService.pollingCredentials$().subscribe();
   }
@@ -21,5 +21,9 @@ export class AppComponent {
     } else {
       this.check = false;
     }
+  }
+
+  onLanguageValueReceived(addedValue: { languageValue: string }) {
+    this.changesLanguage = addedValue.languageValue;
   }
 }

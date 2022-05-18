@@ -15,4 +15,9 @@ export class PublicApisService {
     let url = 'https://api.pets-like.com/d1/public/list-languages';
     return this.http.get(url);
   }
+
+  getCategories() {
+    let url = 'https://api.pets-like.com/d1/public/list-tags';
+    return this.http.get(url);
+  }
 }

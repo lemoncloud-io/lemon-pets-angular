@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PublicApisService } from '../services/public-apis.service';
 import { AppComponent } from '../app.component';
 
@@ -9,9 +9,8 @@ import { AppComponent } from '../app.component';
 })
 export class BottombarComponent implements OnInit {
   listTags: any = {};
-  // language: 'en' | 'ko' = 'en';
-  // language: string = 'ko';
-  language = AppComponent.language;
+  @Input() language = '';
+
   constructor(private action: PublicApisService) {
     this.action.getData().subscribe((data) => {
       this.listTags = data;
