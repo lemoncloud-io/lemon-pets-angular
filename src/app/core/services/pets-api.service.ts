@@ -4,28 +4,34 @@ import { HttpClient } from '@angular/common/http';
 import {LemonAuthService} from "./lemon-auth.service";
 import {UtilsService} from "./utils.service";
 import {environment} from "@env/environment";
+import {delay} from "rxjs";
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class PetsApiService {
-    private isLocal: boolean = true;
+  private isLocal: boolean = true;
 
-    constructor(
-      private httpClient: LemonAuthService,
-      private utils: UtilsService,
-      private mockClient: HttpClient
-    ) {
-        this.isLocal = this.utils.isLocalEnv();
+  constructor(
+    private httpClient: LemonAuthService,
+    private utils: UtilsService,
+    private mockClient: HttpClient
+  ) {
+    this.isLocal = this.utils.isLocalEnv();
+  }
+
+  fetchContents$(params: Params) {
+    if (this.isLocal) {
+      const url = 'assets/json/contents.json';
+      return this.mockClient.get(url).pipe(delay(200));
     }
 
-    fetchContents$(params: Params) {
-        return this.httpClient.request$(
-            'GET',
-            environment.petsApiEndpoint,
-            '/contents',
-            this.utils.deleteUndefinedProperty(params)
-        );
-    }
+    return this.httpClient.request$(
+      'GET',
+      environment.petsApiEndpoint,
+      '/contents',
+      this.utils.deleteUndefinedProperty(params)
+    );
+  }
 
 }
