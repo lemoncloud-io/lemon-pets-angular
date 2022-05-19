@@ -9,6 +9,8 @@ import {PetsApiService} from "./services/pets-api.service";
 import {AuthGuard} from "./guards/auth.guard";
 import {UtilsService} from "@core/services/utils.service";
 import {WindowService} from "@core/services/window.service";
+import {StorageService} from "@core/services/storage.service";
+import {LoaderService} from "@core/services/loader.service";
 
 const SERVICES = [
   LemonAuthService,
@@ -16,6 +18,8 @@ const SERVICES = [
   PetsApiService,
   UtilsService,
   WindowService,
+  StorageService,
+  LoaderService,
 ];
 
 const GUARDS = [AuthGuard];
