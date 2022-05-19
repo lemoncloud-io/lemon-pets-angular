@@ -21,6 +21,7 @@ import { WriteDogpostComponent } from './write-post/write-dogpost/write-dogpost.
 import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-post.component';
 import {CoreModule} from "@core/core.module";
 import { HttpClientModule } from '@angular/common/http';
+import {SharedModule} from "@shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -42,13 +43,14 @@ import { HttpClientModule } from '@angular/common/http';
     WriteDogpostComponent,
     WriteEtcPostComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    CoreModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        CoreModule,
+        HttpClientModule,
+        SharedModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

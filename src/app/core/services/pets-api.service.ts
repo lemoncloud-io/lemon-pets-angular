@@ -21,10 +21,10 @@ export class PetsApiService {
   }
 
   fetchContents$(params: Params) {
-    if (this.isLocal) {
-      const url = 'assets/json/contents.json';
-      return this.mockClient.get(url).pipe(delay(200));
-    }
+    // if (this.isLocal) {
+    //   const url = 'assets/json/contents.json';
+    //   return this.mockClient.get(url).pipe(delay(200));
+    // }
 
     return this.httpClient.request$(
       'GET',

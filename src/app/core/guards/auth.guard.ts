@@ -32,20 +32,16 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     }
 
     private guardAuthenticated(): Observable<boolean> {
-        if (!environment.production && environment.env === 'local') {
-            return of(true);
-        }
-
-        return this.authService.isAuthenticated$().pipe(
+        return this.authService.hasCredentialsAndAuthenticated$().pipe(
             map((isAuth) => {
                 if (!isAuth) {
-                    this.router.navigate(['/auth/login']);
+                    this.router.navigate(['/']);
                     return false;
                 }
                 return true;
             }),
             catchError(() => {
-                this.router.navigate(['/auth/login']);
+                this.router.navigate(['/']);
                 return of(false);
             })
         );
