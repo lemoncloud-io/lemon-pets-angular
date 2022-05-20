@@ -20,4 +20,9 @@ export class PublicApisService {
     let url = 'https://api.pets-like.com/d1/public/list-tags';
     return this.http.get(url);
   }
+
+  getlistCategory() {
+    let url = 'https://api.pets-like.com/d1/public/list-categories';
+    return this.http.get(url);
+  }
 }

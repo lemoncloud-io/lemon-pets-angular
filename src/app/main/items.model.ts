@@ -1,13 +1,9 @@
-export class Items {
-  constructor(public name: string, public price: string, public date: string) {}
-}
-
 export interface Content {
   activity: string;
   author: {
     identityId: string;
     name: string;
-  }
+  };
   authorAgent: string;
   authorIp: string;
   bookmarks?: number;

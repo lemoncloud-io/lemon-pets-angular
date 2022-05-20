@@ -12,10 +12,12 @@
     <div class="col-12">
       <a
         data-toggle="modal"
-        data-target=".bd-example-modal-sm"
+        data-target="#bd-example-modal-sm"
         class="selectTopic"
       >
-        <span>주제를 선택해주세요.</span>
+        <span>{{
+          selectedTopic === "" ? "주제를 선택해주세요" : selectedValue
+        }}</span>
         <i class="fa-solid fa-caret-down"></i>
       </a>
     </div>
@@ -23,10 +25,42 @@
   <div class="row"></div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-3">
+      <p>게시글의 이미지를 등록해주세요.</p>
+      <label for="file-upload" class="custom-file-upload">
+        <div class="fileUpload">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <input
+          type="file"
+          value="uploadedFile"
+          id="file-upload"
+          hidden
+          [(ngModel)]="uploadedImage"
+          (click)="uploadImage()"
+        />
+      </label>
+      <img src="{{ uploadedImage[0] }}" alt="" />
+    </div>
+    <div class="col-12 mt-3">
+      <textarea
+        class="form-control"
+        name=""
+        id=""
+        cols="20"
+        rows="7"
+      ></textarea>
+    </div>
+  </div>
+</div>
+
 <!-- modal  -->
 
 <div
-  class="modal fade bd-example-modal-sm"
+  class="modal fade"
+  id="bd-example-modal-sm"
   tabindex="-1"
   role="dialog"
   aria-labelledby="mySmallModalLabel"
@@ -53,8 +87,8 @@
               type="radio"
               name="exampleRadios"
               id="exampleRadios1"
-              value="option1"
-              checked
+              value="자랑하기"
+              [(ngModel)]="selectedTopic"
             />
             <label class="form-check-label mx-1" for="exampleRadios1">
               자랑하기
@@ -66,14 +100,21 @@
               type="radio"
               name="exampleRadios"
               id="exampleRadios2"
-              value="option2"
+              value="판매"
+              [(ngModel)]="selectedTopic"
             />
             <label class="form-check-label mx-1" for="exampleRadios2">
               판매
             </label>
           </div>
         </div>
-        <button class="btn btn-purple-filled text-center">적용하기</button>
+        <button
+          class="btn btn-purple-filled text-center"
+          (click)="applyTopic()"
+          data-dismiss="modal"
+        >
+          적용하기
+        </button>
       </div>
     </div>
   </div>
