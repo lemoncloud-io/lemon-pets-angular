@@ -12,24 +12,53 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
 import { WriteCatpostComponent } from './write-post/write-catpost/write-catpost.component';
 import { WriteDogpostComponent } from './write-post/write-dogpost/write-dogpost.component';
 import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-post.component';
-import {AuthGuard} from "@core/guards/auth.guard";
+import { AuthGuard } from '@core/guards/auth.guard';
 
 const routes: Routes = [
-  { component: CommunityComponent, path: 'community', canActivate: [AuthGuard], },
-  { component: MyPageComponent, path: 'mypage', canActivate: [AuthGuard], },
-  { component: ProductsComponent, path: 'product', canActivate: [AuthGuard], },
-  { component: MainComponent, path: 'main', canActivate: [AuthGuard], },
-  { component: EditProfileComponent, path: 'editProfile', canActivate: [AuthGuard], },
-  { component: NotificationComponent, path: 'notification', canActivate: [AuthGuard], },
-  { component: CatComponent, path: 'cat', canActivate: [AuthGuard], },
-  { component: DogComponent, path: 'dog', canActivate: [AuthGuard], },
-  { component: EtcComponent, path: 'etc', canActivate: [AuthGuard], },
-  { component: WriteCatpostComponent, path: 'writecatpost', canActivate: [AuthGuard], },
-  { component: WriteDogpostComponent, path: 'writedogpost', canActivate: [AuthGuard], },
-  { component: WriteEtcPostComponent, path: 'writeetcpost', canActivate: [AuthGuard], },
+  {
+    component: CommunityComponent,
+    path: 'community',
+    canActivate: [AuthGuard],
+  },
+  { component: MyPageComponent, path: 'mypage', canActivate: [AuthGuard] },
+  {
+    component: ProductsComponent,
+    path: 'product/:id/:name',
+    canActivate: [AuthGuard],
+  },
+  { component: MainComponent, path: 'main', canActivate: [AuthGuard] },
+  {
+    component: EditProfileComponent,
+    path: 'editProfile',
+    canActivate: [AuthGuard],
+  },
+  {
+    component: NotificationComponent,
+    path: 'notification',
+    canActivate: [AuthGuard],
+  },
+  { component: CatComponent, path: 'cat', canActivate: [AuthGuard] },
+  { component: DogComponent, path: 'dog', canActivate: [AuthGuard] },
+  { component: EtcComponent, path: 'etc', canActivate: [AuthGuard] },
+  {
+    component: WriteCatpostComponent,
+    path: 'writecatpost',
+    canActivate: [AuthGuard],
+  },
+  {
+    component: WriteDogpostComponent,
+    path: 'writedogpost',
+    canActivate: [AuthGuard],
+  },
+  {
+    component: WriteEtcPostComponent,
+    path: 'writeetcpost',
+    canActivate: [AuthGuard],
+  },
   {
     path: 'auth',
-    loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   { path: '**', redirectTo: '' },
 ];

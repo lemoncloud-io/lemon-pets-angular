@@ -3,7 +3,7 @@
     <div class="col-12">
       <div class="row">
         <div class="col-4 centerMid">
-          <a routerLink="../product">
+          <a [routerLink]="['/product', '{{content.id}}', '{{content.text}}']">
             <img [src]="content.images[0] || DEFAULT_IMAGE" alt="" />
           </a>
         </div>

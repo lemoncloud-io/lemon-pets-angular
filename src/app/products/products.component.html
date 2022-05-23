@@ -8,37 +8,39 @@
       <i class="fa-solid fa-ellipsis-vertical"></i>
     </div>
   </div>
-  <div class="row py-3">
-    <div class="col-12">
-      <img src="./assets/product_profile.png" alt="" class="w-100" />
+  <div *ngFor="let content of fetchedContents">
+    <div class="row py-3">
+      <div class="col-12">
+        <img [src]="content.images[0] || DEFAULT_IMAGE" alt="" class="w-100" />
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12 profile">
-      <img src="./assets/product_profile.png" alt="" class="mr-3" />
-      <span class="font-weight-bold"> 토끼냥 </span>
+    <div class="row">
+      <div class="col-12 profile">
+        <img src="./assets/product_profile.png" alt="" class="mr-3" />
+        <span class="font-weight-bold"> {{ content.text }} </span>
+      </div>
     </div>
-  </div>
-  <hr />
-  <div class="row">
-    <div class="col-6">
-      <span class="mr-4">고양이</span><span>2021.11.20</span>
+    <hr />
+    <div class="row">
+      <div class="col-6">
+        <span class="mr-4">고양이</span><span>2021.11.20</span>
+      </div>
+      <div class="col-6 text-right">
+        <button class="btn btn-round btn-purple">거래진행중</button>
+      </div>
     </div>
-    <div class="col-6 text-right">
-      <button class="btn btn-round btn-purple">거래진행중</button>
+    <div class="row py-3">
+      <div class="col-12">
+        <p class="font-weight-bold mb-0">
+          고양이 용품 이거씀고양이 용품 이거씀고양이 용품 이거씀 고양이 용품
+          이거씀
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="row py-3">
-    <div class="col-12">
-      <p class="font-weight-bold mb-0">
-        고양이 용품 이거씀고양이 용품 이거씀고양이 용품 이거씀 고양이 용품
-        이거씀
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <span class="mr-4">고양이</span><span>2021.11.20</span>
+    <div class="row">
+      <div class="col-12">
+        <span class="mr-4">고양이</span><span>2021.11.20</span>
+      </div>
     </div>
   </div>
 </div>
