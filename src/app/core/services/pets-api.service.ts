@@ -34,7 +34,7 @@ export class PetsApiService {
     );
   }
 
-  fetchproduct$(params: Params) {
+  fetchproduct$() {
     // if (this.isLocal) {
     //   const url = 'assets/json/contents.json';
     //   return this.mockClient.get(url).pipe(delay(200));
@@ -43,8 +43,8 @@ export class PetsApiService {
     return this.httpClient.request$(
       'GET',
       environment.petsApiEndpoint,
-      '/contents/1000387',
-      this.utils.deleteUndefinedProperty(params)
+      '/contents/'
+      // this.utils.deleteUndefinedProperty()
     );
   }
 }
