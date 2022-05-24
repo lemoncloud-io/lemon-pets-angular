@@ -34,16 +34,24 @@ export class PetsApiService {
     );
   }
 
-  fetchproduct$() {
+  fetchproduct() {
+    return this.httpClient.request$(
+      'GET',
+      environment.petsApiEndpoint,
+      '/contents/1000387'
+    );
+  }
+
+  uploadProductImages$() {
     // if (this.isLocal) {
     //   const url = 'assets/json/contents.json';
     //   return this.mockClient.get(url).pipe(delay(200));
     // }
 
     return this.httpClient.request$(
-      'GET',
+      'POST',
       environment.petsApiEndpoint,
-      '/contents/'
+      '/contents/0'
       // this.utils.deleteUndefinedProperty()
     );
   }
