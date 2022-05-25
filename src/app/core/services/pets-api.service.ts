@@ -15,7 +15,7 @@ export class PetsApiService {
   constructor(
     private httpClient: LemonAuthService,
     private utils: UtilsService,
-    private mockClient: HttpClient
+    private http: HttpClient
   ) {
     this.isLocal = this.utils.isLocalEnv();
   }
@@ -34,7 +34,7 @@ export class PetsApiService {
     );
   }
 
-  fetchproduct() {
+  fetchproduct$() {
     return this.httpClient.request$(
       'GET',
       environment.petsApiEndpoint,
@@ -42,17 +42,19 @@ export class PetsApiService {
     );
   }
 
-  uploadProductImages$() {
-    // if (this.isLocal) {
-    //   const url = 'assets/json/contents.json';
-    //   return this.mockClient.get(url).pipe(delay(200));
-    // }
+  fetchMoreproduct$(params: Params) {
+    return this.httpClient.request$(
+      'GET',
+      environment.petsApiEndpoint,
+      '/contents/1000387/more'
+    );
+  }
 
+  uploadProductImages$() {
     return this.httpClient.request$(
       'POST',
       environment.petsApiEndpoint,
       '/contents/0'
-      // this.utils.deleteUndefinedProperty()
     );
   }
 }

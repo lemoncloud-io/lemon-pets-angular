@@ -11,18 +11,31 @@ import { ReplaySubject } from 'rxjs';
 })
 export class ProductsComponent implements OnInit {
   DEFAULT_IMAGE = './assets/dog_profile.png';
-  fetchedContents: any = [];
+  fetchedContents: Content[] = [];
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor(private petsApiService: PetsApiService) {
-    this.petsApiService.fetchproduct().subscribe(({ list }) => {
-      this.fetchedContents = list;
-      console.log(this.fetchedContents);
-    });
-  }
+  constructor(private petsApiService: PetsApiService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const defaultParams = { page: 0, limit: 10 };
+    this.petsApiService
+      .fetchContents$(defaultParams)
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(({ list }) => {
+        console.log(list);
+        this.fetchedContents = list;
+      });
+
+    const MoreParams = { page: 1, limit: 4 };
+    this.petsApiService
+      .fetchMoreproduct$(MoreParams)
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(({ list }) => {
+        console.log(list);
+        this.fetchedContents = list;
+      });
+  }
 
   ngOnDestroy() {
     this.destroyed$.next(true);
