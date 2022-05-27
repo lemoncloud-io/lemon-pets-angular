@@ -3,6 +3,7 @@ import { Content } from './productData.model';
 import { PetsApiService } from '@core/services/pets-api.service';
 import { takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -12,12 +13,25 @@ import { ReplaySubject } from 'rxjs';
 export class ProductsComponent implements OnInit {
   DEFAULT_IMAGE = './assets/dog_profile.png';
   fetchedContents: Content[] = [];
+  fetchedMoreproducts = [];
+
+  user: {
+    id: number;
+    name: string;
+  };
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor(private petsApiService: PetsApiService) {}
+  constructor(
+    private petsApiService: PetsApiService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.user = {
+      id: this.route.snapshot.params['id'],
+      name: this.route.snapshot.params['name'],
+    };
     const defaultParams = { page: 0, limit: 10 };
     this.petsApiService
       .fetchContents$(defaultParams)
@@ -33,7 +47,7 @@ export class ProductsComponent implements OnInit {
       .pipe(takeUntil(this.destroyed$))
       .subscribe(({ list }) => {
         console.log(list);
-        this.fetchedContents = list;
+        this.fetchedMoreproducts = list;
       });
   }
 

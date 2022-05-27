@@ -13,6 +13,8 @@ export class MainComponent implements OnInit, OnDestroy {
   DEFAULT_IMAGE = './assets/dog_profile.png';
 
   fetchedContents: Content[] = [];
+  changesLanguage = '';
+
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
@@ -32,5 +34,9 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroyed$.next(true);
     this.destroyed$.complete();
+  }
+
+  onLanguageValueReceived(addedValue: { languageValue: string }) {
+    this.changesLanguage = addedValue.languageValue;
   }
 }

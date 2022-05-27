@@ -1,9 +1,11 @@
+<app-navbar (onLanguagechange)="onLanguageValueReceived($event)"></app-navbar>
+
 <div class="container">
   <div class="row product" *ngFor="let content of fetchedContents">
     <div class="col-12">
       <div class="row">
         <div class="col-4 centerMid">
-          <a [routerLink]="['/product', '{{content.id}}', '{{content.text}}']">
+          <a routerLink="/product/{{ content.id }}/{{ content.text }}">
             <img [src]="content.images[0] || DEFAULT_IMAGE" alt="" />
           </a>
         </div>
@@ -120,3 +122,4 @@
     </div>
   </div> -->
 </div>
+<app-bottombar [language]="changesLanguage"></app-bottombar>
