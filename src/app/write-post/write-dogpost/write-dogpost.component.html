@@ -10,11 +10,7 @@
   <hr />
   <div class="row">
     <div class="col-12">
-      <a
-        data-toggle="modal"
-        data-target="#bd-example-modal-sm"
-        class="selectTopic"
-      >
+      <a data-toggle="modal" data-target="#myModal" class="selectTopic">
         <span>{{
           selectedTopic === "" ? "주제를 선택해주세요" : selectedValue
         }}</span>
@@ -22,36 +18,44 @@
       </a>
     </div>
   </div>
-  <div class="row"></div>
-</div>
-
-<div class="container">
   <div class="row">
-    <div class="col-12 mt-3">
-      <p>게시글의 이미지를 등록해주세요.</p>
-      <label for="file-upload" class="custom-file-upload">
-        <div class="fileUpload">
-          <i class="fa-solid fa-plus"></i>
+    <div class="col-12">
+      <form #usersForm="ngForm" (ngSubmit)="getUserFormData(usersForm.value)">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 mt-3">
+              <p>게시글의 이미지를 등록해주세요.</p>
+              <label for="file-upload" class="custom-file-upload">
+                <div class="fileUpload">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+                <input
+                  type="file"
+                  value="uploadedFile"
+                  id="file-upload"
+                  hidden
+                  [(ngModel)]="uploadedImage"
+                  (click)="uploadImage()"
+                />
+              </label>
+              <img src="{{ uploadedImage[0] }}" alt="" />
+            </div>
+            <div class="col-12 mt-3">
+              <textarea
+                class="form-control"
+                name=""
+                id=""
+                cols="20"
+                rows="7"
+                value=""
+              ></textarea>
+            </div>
+          </div>
         </div>
-        <input
-          type="file"
-          value="uploadedFile"
-          id="file-upload"
-          hidden
-          [(ngModel)]="uploadedImage"
-          (click)="uploadImage()"
-        />
-      </label>
-      <img src="{{ uploadedImage[0] }}" alt="" />
-    </div>
-    <div class="col-12 mt-3">
-      <textarea
-        class="form-control"
-        name=""
-        id=""
-        cols="20"
-        rows="7"
-      ></textarea>
+        <div class="row">
+          <button type="submit" class="btn btn-purple">등록</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -60,7 +64,7 @@
 
 <div
   class="modal fade"
-  id="bd-example-modal-sm"
+  id="myModal"
   tabindex="-1"
   role="dialog"
   aria-labelledby="mySmallModalLabel"

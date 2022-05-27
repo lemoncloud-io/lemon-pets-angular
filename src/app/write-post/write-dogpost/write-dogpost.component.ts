@@ -26,5 +26,7 @@ export class WriteDogpostComponent implements OnInit {
 
   uploadImage() {}
 
+  getUserFormData(data: any) {}
+
   ngOnInit(): void {}
 }

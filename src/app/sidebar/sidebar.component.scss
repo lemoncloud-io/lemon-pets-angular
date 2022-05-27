@@ -12,6 +12,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    a {
+      @include flex;
+      justify-content: space-between;
+      width: 100%;
+      text-decoration: none;
+      color: $secondary;
+    }
     .userIcon {
       width: 50px;
       height: 50px;
