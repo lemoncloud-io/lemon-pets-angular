@@ -53,7 +53,9 @@
           </div>
         </div>
         <div class="row">
-          <button type="submit" class="btn btn-purple">등록</button>
+          <button type="submit" class="btn btn-purple-filled text-center m-3">
+            등록
+          </button>
         </div>
       </form>
     </div>
@@ -85,30 +87,17 @@
       </div>
       <div class="modal-body px-4 pb-4">
         <div class="pb-4">
-          <div class="form-check">
+          <div class="form-check" *ngFor="let category of listCategories.list">
             <input
               class="form-check-input"
               type="radio"
               name="exampleRadios"
               id="exampleRadios1"
-              value="자랑하기"
+              value="{{ category.code }}"
               [(ngModel)]="selectedTopic"
             />
             <label class="form-check-label mx-1" for="exampleRadios1">
-              자랑하기
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios2"
-              value="판매"
-              [(ngModel)]="selectedTopic"
-            />
-            <label class="form-check-label mx-1" for="exampleRadios2">
-              판매
+              {{ category.nameEn }}
             </label>
           </div>
         </div>

@@ -12,7 +12,7 @@ export class BottombarComponent implements OnInit {
   @Input() language = '';
 
   constructor(private action: PublicApisService) {
-    this.action.getData().subscribe((data) => {
+    this.action.getListTags().subscribe((data) => {
       this.listTags = data;
       console.log(this.listTags);
     });

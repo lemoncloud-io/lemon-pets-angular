@@ -8,13 +8,12 @@ import { PublicApisService } from '../../services/public-apis.service';
 })
 export class WriteDogpostComponent implements OnInit {
   listCategories: any = [];
-  language: 'en';
   selectedTopic = '';
   selectedValue = '';
   uploadedImage = [];
 
   constructor(private action: PublicApisService) {
-    this.action.getCategories().subscribe((data) => {
+    this.action.getlistCategory().subscribe((data) => {
       this.listCategories = data;
       console.log(this.listCategories);
     });
