@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
       console.log(this.listLanguage);
     });
 
-    this.action.getCategories().subscribe((data) => {
+    this.action.getListTags().subscribe((data) => {
       this.listCategories = data;
       console.log(this.listCategories);
     });

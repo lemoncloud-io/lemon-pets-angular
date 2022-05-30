@@ -9,17 +9,17 @@
   ></a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" routerLink="writedogpost"
-      ><img src="./assets/dogIcon.svg" alt="" />
-      {{ language === "ko" ? "강아지 게시글 작성" : "Write a dog post" }}</a
+    <a
+      class="dropdown-item"
+      *ngFor="let tags of listTags.list"
+      routerLink="write{{ tags.code }}post"
     >
-    <a class="dropdown-item" routerLink="writecatpost"
-      ><img src="./assets/catIcon.svg" alt="" />
-      {{ language === "ko" ? "고양이 게시글 작성" : "Write a cat post" }}</a
-    >
-    <a class="dropdown-item" routerLink="writeetcpost"
-      ><img src="./assets/etcIcon.svg" alt="" />
-      {{ language === "ko" ? "기타 게시글 작성" : "Write a etc post" }}</a
+      <img src="./assets/{{ tags.code }}Icon.svg" alt="" />
+      {{
+        language === "ko"
+          ? tags.name + " 게시글 작성" + ""
+          : "Write a " + tags.nameEn + " post"
+      }}</a
     >
   </div>
 </div>
