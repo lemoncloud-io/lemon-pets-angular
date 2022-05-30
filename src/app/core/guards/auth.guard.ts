@@ -32,6 +32,9 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     }
 
     private guardAuthenticated(): Observable<boolean> {
+        if (!environment.production) {
+            return of(true);
+        }
         return this.authService.hasCredentialsAndAuthenticated$().pipe(
             map((isAuth) => {
                 if (!isAuth) {
