@@ -15,7 +15,6 @@ export class MainComponent implements OnInit, OnDestroy {
   fetchedContents: Content[] = [];
   changesLanguage = '';
 
-
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor(private petsApiService: PetsApiService) {}

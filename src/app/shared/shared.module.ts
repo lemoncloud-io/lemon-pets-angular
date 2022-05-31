@@ -4,21 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoaderComponent } from '@shared/components/loader/loader.component';
 
-const COMPONENTS = [
-    LoaderComponent,
-];
+const COMPONENTS = [LoaderComponent];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-    ],
-    declarations: [...COMPONENTS],
-    exports: [
-        FormsModule,
-        ReactiveFormsModule,
-        ...COMPONENTS,
-    ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  declarations: [...COMPONENTS],
+  exports: [FormsModule, ReactiveFormsModule, ...COMPONENTS],
 })
 export class SharedModule {}
