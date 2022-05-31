@@ -6,22 +6,22 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BottombarComponent } from './bottombar/bottombar.component';
-import { ProductsComponent } from './products/products.component';
-import { CommunityComponent } from './community/community.component';
-import { MyPageComponent } from './my-page/my-page.component';
+import { ProductsComponent } from './modules/products/products.component';
+import { CommunityComponent } from './modules/community/community.component';
+import { MyPageComponent } from './modules/my-page/my-page.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
-import { NotificationComponent } from './notification/notification.component';
+import { NotificationComponent } from './modules/notification/notification.component';
 import { DogComponent } from './categories/dog/dog.component';
 import { CatComponent } from './categories/cat/cat.component';
 import { EtcComponent } from './categories/etc/etc.component';
-import { MainComponent } from './main/main.component';
+import { MainComponent } from './modules/main/main.component';
 import { WritePostComponent } from './write-post/write-post.component';
 import { WriteCatpostComponent } from './write-post/write-catpost/write-catpost.component';
 import { WriteDogpostComponent } from './write-post/write-dogpost/write-dogpost.component';
 import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-post.component';
-import {CoreModule} from "@core/core.module";
+import { CoreModule } from '@core/core.module';
 import { HttpClientModule } from '@angular/common/http';
-import {SharedModule} from "@shared/shared.module";
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -41,16 +41,16 @@ import {SharedModule} from "@shared/shared.module";
     WritePostComponent,
     WriteCatpostComponent,
     WriteDogpostComponent,
-    WriteEtcPostComponent
+    WriteEtcPostComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        CoreModule,
-        HttpClientModule,
-        SharedModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    CoreModule,
+    HttpClientModule,
+    SharedModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

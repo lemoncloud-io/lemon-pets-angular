@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PublicApisService } from '../services/public-apis.service';
-import { AppComponent } from '../app.component';
+// import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-bottombar',
