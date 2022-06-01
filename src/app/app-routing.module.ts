@@ -8,7 +8,7 @@ import { MainComponent } from './modules/main/main.component';
 import { MyPageComponent } from './modules/my-page/my-page.component';
 import { NotificationComponent } from './modules/notification/notification.component';
 import { ProductsComponent } from './modules/products/products.component';
-import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { EditProfileComponent } from './modules/edit-profile/edit-profile.component';
 import { WriteCatpostComponent } from './write-post/write-catpost/write-catpost.component';
 import { WriteDogpostComponent } from './write-post/write-dogpost/write-dogpost.component';
 import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-post.component';
