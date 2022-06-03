@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PublicApisService } from '../../services/public-apis.service';
+import { PublicApisService } from '../../../services/public-apis.service';
 // import { AppComponent } from '../app.component';
 
 @Component({

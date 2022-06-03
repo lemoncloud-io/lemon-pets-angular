@@ -31,14 +31,16 @@
                 </div>
                 <input
                   type="file"
-                  value="uploadedFile"
                   id="file-upload"
                   hidden
-                  [(ngModel)]="uploadedImage"
-                  (click)="uploadImage()"
+                  (change)="uploadImage($event)"
+                  accept="image/*"
+                  multiple
                 />
               </label>
-              <img src="{{ uploadedImage[0] }}" alt="" />
+              <div *ngFor="let image of imagestoShow">
+                <img src="{{ image.localUrl }}" alt="" />
+              </div>
             </div>
             <div class="col-12 mt-3">
               <textarea

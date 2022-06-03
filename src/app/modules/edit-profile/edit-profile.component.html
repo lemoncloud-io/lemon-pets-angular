@@ -10,7 +10,7 @@
   <div class="row profile">
     <div class="col-12 centerMid">
       <div class="imageContaine">
-        <img src="{{ updateProfile.url }}" alt="" />
+        <img src="{{ updateProfile }}" alt="" />
         <label for="file-upload" class="custom-file-upload">
           <i class="fa-solid fa-pen centerMid"></i>
           <input
@@ -28,7 +28,9 @@
       </div>
     </div>
     <div class="col-12 p-3">
-      <button class="btn btn-purple-filled">저장</button>
+      <button class="btn btn-purple-filled" (click)="onProfileChange()">
+        저장
+      </button>
     </div>
   </div>
 </div>

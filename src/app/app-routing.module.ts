@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CatComponent } from './categories/cat/cat.component';
-import { DogComponent } from './categories/dog/dog.component';
-import { EtcComponent } from './categories/etc/etc.component';
 import { CommunityComponent } from './modules/community/community.component';
 import { MainComponent } from './modules/main/main.component';
 import { MyPageComponent } from './modules/my-page/my-page.component';
 import { NotificationComponent } from './modules/notification/notification.component';
 import { ProductsComponent } from './modules/products/products.component';
 import { EditProfileComponent } from './modules/edit-profile/edit-profile.component';
-import { WriteCatpostComponent } from './write-post/write-catpost/write-catpost.component';
-import { WriteDogpostComponent } from './write-post/write-dogpost/write-dogpost.component';
-import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-post.component';
+import { WriteCatpostComponent } from './modules/write-post/write-catpost/write-catpost.component';
+import { WriteDogpostComponent } from './modules/write-post/write-dogpost/write-dogpost.component';
+import { WriteEtcPostComponent } from './modules/write-post/write-etc-post/write-etc-post.component';
 import { AuthGuard } from '@core/guards/auth.guard';
 
 const routes: Routes = [
@@ -37,9 +34,6 @@ const routes: Routes = [
     path: 'notification',
     canActivate: [AuthGuard],
   },
-  { component: CatComponent, path: 'cat', canActivate: [AuthGuard] },
-  { component: DogComponent, path: 'dog', canActivate: [AuthGuard] },
-  { component: EtcComponent, path: 'etc', canActivate: [AuthGuard] },
   {
     component: WriteCatpostComponent,
     path: 'writecatpost',
