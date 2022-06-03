@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { PublicApisService } from '../../services/public-apis.service';
+import { PublicApisService } from '../../../services/public-apis.service';
 
 @Component({
   selector: 'app-navbar',

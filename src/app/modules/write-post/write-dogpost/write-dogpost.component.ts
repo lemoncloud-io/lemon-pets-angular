@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PublicApisService } from '../../services/public-apis.service';
+import { PublicApisService } from '../../../services/public-apis.service';
 
 @Component({
   selector: 'app-write-dogpost',
@@ -10,7 +10,7 @@ export class WriteDogpostComponent implements OnInit {
   listCategories: any = [];
   selectedTopic = '';
   selectedValue = '';
-  uploadedImage = [];
+  imagestoShow = [];
 
   constructor(private action: PublicApisService) {
     this.action.getlistCategory().subscribe((data) => {
@@ -23,7 +23,13 @@ export class WriteDogpostComponent implements OnInit {
     return (this.selectedValue = this.selectedTopic);
   }
 
-  uploadImage() {}
+  uploadImage(event) {
+    for (let img of event.target.files)
+      this.imagestoShow.push({
+        img,
+        localUrl: window.URL.createObjectURL(img),
+      });
+  }
 
   getUserFormData(data: any) {}
 

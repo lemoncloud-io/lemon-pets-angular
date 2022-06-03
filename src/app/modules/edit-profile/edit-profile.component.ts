@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-edit-profile',
@@ -10,6 +10,10 @@ export class EditProfileComponent implements OnInit {
 
   uploadedFile: any = '';
   updateProfile: any = {};
+
+  @Output() onProfilechange = new EventEmitter<{ profileImage: string }>();
+
+  profileImage = '';
 
   uploadImage() {
     // add file to FormData object
@@ -26,9 +30,9 @@ export class EditProfileComponent implements OnInit {
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        this.updateProfile = json.list[0];
+        this.updateProfile = json.list[0].url;
       })
-      .catch((err) => console.error(err, 'have a good day'));
+      .catch((err) => console.error(err));
   }
 
   onChange({ target }: Event) {
@@ -37,6 +41,12 @@ export class EditProfileComponent implements OnInit {
     this.uploadImage();
   }
 
+  onProfileChange() {
+    this.updateProfile = this.profileImage;
+    this.onProfilechange.emit({
+      profileImage: this.updateProfile,
+    });
+  }
   constructor() {}
 
   ngOnInit(): void {}
