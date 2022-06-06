@@ -29,19 +29,21 @@
     <div class="col-4">
       <a routerLink="">
         <div class="icon"><i class="fa-solid fa-house"></i></div>
-        <div class="text">메인</div>
+        <div class="text">{{ language === "ko" ? "메인" : "Main" }}</div>
       </a>
     </div>
     <div class="col-4">
       <a routerLink="community">
         <div class="icon"><i class="fa-solid fa-file-lines"></i></div>
-        <div class="text">게시판</div>
+        <div class="text">{{ language === "ko" ? "게시판" : "Community" }}</div>
       </a>
     </div>
     <div class="col-4">
       <a routerLink="mypage">
         <div class="icon"><i class="fa-solid fa-user"></i></div>
-        <div class="text">마이페이지</div>
+        <div class="text">
+          {{ language === "ko" ? "마이페이지" : "My page" }}
+        </div>
       </a>
     </div>
   </div>

@@ -31,3 +31,12 @@
   @include flex;
   justify-content: center;
 }
+
+.imgContainer {
+  @include flex;
+  overflow-x: scroll;
+  img {
+    width: 60px;
+    height: 60px;
+  }
+}

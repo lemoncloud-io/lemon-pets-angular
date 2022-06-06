@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
   DEFAULT_IMAGE = './assets/dog_profile.png';
   fetchedContents: Content[] = [];
   fetchedMoreproducts = [];

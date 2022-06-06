@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { PublicApisService } from '../../../services/public-apis.service';
 
 @Component({
@@ -6,16 +6,14 @@ import { PublicApisService } from '../../../services/public-apis.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   listLanguage: any = [];
   listCategories: any = [];
-  @Output() onLanguagechange = new EventEmitter<{ languageValue: string }>();
   languageValue: '';
-  language = '';
+  language: string;
   constructor(private action: PublicApisService) {
     this.action.getLanguage().subscribe((data) => {
       this.listLanguage = data;
-      console.log(this.listLanguage);
     });
 
     this.action.getListTags().subscribe((data) => {
@@ -23,8 +21,6 @@ export class NavbarComponent implements OnInit {
       console.log(this.listCategories);
     });
   }
-
-  ngOnInit(): void {}
 
   check: boolean = !false;
 
@@ -38,8 +34,6 @@ export class NavbarComponent implements OnInit {
 
   applyLanguage() {
     this.language = this.languageValue;
-    this.onLanguagechange.emit({
-      languageValue: this.language,
-    });
+    this.action.language.next(this.language);
   }
 }
