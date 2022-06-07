@@ -25,21 +25,31 @@
           <div class="row">
             <div class="col-12 mt-3">
               <p>게시글의 이미지를 등록해주세요.</p>
-              <label for="file-upload" class="custom-file-upload">
-                <div class="fileUpload">
-                  <i class="fa-solid fa-plus"></i>
+              <div class="row">
+                <div class="col-2">
+                  <label for="file-upload" class="custom-file-upload">
+                    <div class="fileUpload">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <input
+                      type="file"
+                      id="file-upload"
+                      (change)="uploadImage($event)"
+                      hidden
+                      multiple
+                    />
+                  </label>
                 </div>
-                <input
-                  type="file"
-                  id="file-upload"
-                  hidden
-                  (change)="uploadImage($event)"
-                  accept="image/*"
-                  multiple
-                />
-              </label>
-              <div *ngFor="let image of imagestoShow">
-                <img src="{{ image.localUrl }}" alt="" />
+                <div class="col-10">
+                  <div class="imgContainer">
+                    <img
+                      *ngFor="let url of imagestoShow"
+                      [src]="url"
+                      alt=""
+                      (click)="deleteImage(url)"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-12 mt-3">
@@ -50,12 +60,17 @@
                 cols="20"
                 rows="7"
                 value=""
+                [(ngModel)]="message"
               ></textarea>
             </div>
           </div>
         </div>
         <div class="row">
-          <button type="submit" class="btn btn-purple-filled text-center m-3">
+          <button
+            type="submit"
+            class="btn btn-purple-filled text-center m-3"
+            (click)="onproductUpload()"
+          >
             등록
           </button>
         </div>

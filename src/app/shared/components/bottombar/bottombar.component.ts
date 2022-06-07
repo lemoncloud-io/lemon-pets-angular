@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PublicApisService } from '../../../services/public-apis.service';
-// import { AppComponent } from '../app.component';
+import { PublicApisService } from '@app/services/public-apis.service';
 
 @Component({
   selector: 'app-bottombar',
@@ -9,7 +8,7 @@ import { PublicApisService } from '../../../services/public-apis.service';
 })
 export class BottombarComponent implements OnInit {
   listTags: any = {};
-  @Input() language = '';
+  language = '';
 
   constructor(private action: PublicApisService) {
     this.action.getListTags().subscribe((data) => {
@@ -18,5 +17,9 @@ export class BottombarComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.action.language.subscribe((res) => {
+      this.language = res;
+    });
+  }
 }
