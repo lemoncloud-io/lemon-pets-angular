@@ -35,8 +35,22 @@
 .imgContainer {
   @include flex;
   overflow-x: scroll;
-  img {
-    width: 60px;
-    height: 60px;
+  div {
+    position: relative;
+    margin: 10px;
+
+    border-radius: 5px;
+    &:selected {
+      border: 1px solid $primary;
+    }
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    i {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+    }
   }
 }

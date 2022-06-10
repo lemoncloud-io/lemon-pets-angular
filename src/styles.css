@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+.centerMid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.leftmid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.rightMid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+.backward a {
+  text-decoration: none;
+  color: #333;
+}
+
+.btn {
+  font-size: 11px;
+}
+
+.btn-purple-filled {
+  background-color: #7c4dff;
+  color: #ffffff;
+  width: 100%;
+  padding: 10px;
+}
+
+.btn-round {
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+.btn-grey {
+  border: 2px solid #dfdfdf;
+}
+
+.btn-purple {
+  border: 2px solid #7c4dff;
+}
+/*# sourceMappingURL=styles.css.map */

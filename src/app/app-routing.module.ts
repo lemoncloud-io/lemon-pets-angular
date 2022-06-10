@@ -4,12 +4,12 @@ import { CommunityComponent } from './modules/community/community.component';
 import { MainComponent } from './modules/main/main.component';
 import { MyPageComponent } from './modules/my-page/my-page.component';
 import { NotificationComponent } from './modules/notification/notification.component';
-import { ProductsComponent } from './modules/products/products.component';
 import { EditProfileComponent } from './modules/edit-profile/edit-profile.component';
-import { WriteCatpostComponent } from './modules/write-post/write-catpost/write-catpost.component';
-import { WriteDogpostComponent } from './modules/write-post/write-dogpost/write-dogpost.component';
-import { WriteEtcPostComponent } from './modules/write-post/write-etc-post/write-etc-post.component';
 import { AuthGuard } from '@core/guards/auth.guard';
+import { ProductsComponent } from './modules/main/products/products.component';
+import { WriteCatpostComponent } from './modules/main/write-post/write-catpost/write-catpost.component';
+import { WriteDogpostComponent } from './modules/main/write-post/write-dogpost/write-dogpost.component';
+import { WriteEtcPostComponent } from './modules/main/write-post/write-etc-post/write-etc-post.component';
 
 const routes: Routes = [
   {

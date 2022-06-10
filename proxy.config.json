@@ -1,0 +1,11 @@
+{
+  "/": {
+    "target": "https://api.pets-like.com/d1",
+
+    "secure": false,
+
+    "logLevel": "debug",
+
+    "changeOrigin": true
+  }
+}
