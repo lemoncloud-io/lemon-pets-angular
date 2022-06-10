@@ -15,7 +15,7 @@ import { environment } from '@env/environment';
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.scss'],
 })
-export class EditProfileComponent {
+export class EditProfileComponent implements OnInit {
   ChangeProfile = '프로필 변경';
 
   uploadedFile: any = '';
@@ -41,6 +41,7 @@ export class EditProfileComponent {
       .then((json) => {
         console.log(json);
         this.updateProfile = json.list[0].url;
+        this.action.setProfileImage(this.updateProfile);
       })
       .catch((err) => console.error(err));
   }
@@ -56,7 +57,12 @@ export class EditProfileComponent {
     private http: HttpClient,
     private imgUpload: ImageApiService,
     private authRequest: LemonAuthService
-  ) {}
+  ) {
+    this.action.uploadedProfileimage.subscribe((userImage) => {
+      this.commingimg = userImage;
+      console.log(this.commingimg);
+    });
+  }
 
   onChangeProfile() {
     this.authRequest
@@ -68,5 +74,11 @@ export class EditProfileComponent {
       .subscribe((res) => {
         console.log(res);
       });
+
+    this.action.uploadedProfileimage.next(this.uploadedFile);
+  }
+
+  ngOnInit(): void {
+    this.updateProfile = this.action.getPrfileImage();
   }
 }

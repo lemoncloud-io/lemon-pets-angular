@@ -42,12 +42,13 @@
                 </div>
                 <div class="col-10">
                   <div class="imgContainer">
-                    <img
-                      *ngFor="let url of imagestoShow"
-                      [src]="url"
-                      alt=""
-                      (click)="deleteImage(url)"
-                    />
+                    <div *ngFor="let url of imagestoShow">
+                      <img [src]="url" alt="" draggable="true" />
+                      <i
+                        class="fa-solid fa-circle-xmark"
+                        (click)="deleteImage(url)"
+                      ></i>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -62,7 +63,6 @@
                 value=""
                 [(ngModel)]="message"
               ></textarea>
-              {{ message }}
             </div>
           </div>
         </div>
