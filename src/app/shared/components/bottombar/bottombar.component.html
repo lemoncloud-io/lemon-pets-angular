@@ -15,11 +15,7 @@
       routerLink="write{{ tags.code }}post"
     >
       <img src="./assets/{{ tags.code }}Icon.svg" alt="" />
-      {{
-        language === "ko"
-          ? tags.name + " 게시글 작성" + ""
-          : "Write a " + tags.nameEn + " post"
-      }}</a
+      {{ "Write a " + tags.code + " post" }}</a
     >
   </div>
 </div>

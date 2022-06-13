@@ -41,7 +41,11 @@
                   </label>
                 </div>
                 <div class="col-10">
-                  <div class="imgContainer">
+                  <div
+                    class="imgContainer"
+                    [dragula]="'bag-one'"
+                    [dragulaModel]="imagestoShow"
+                  >
                     <div *ngFor="let url of imagestoShow">
                       <img [src]="url" alt="" draggable="true" />
                       <i
@@ -56,11 +60,10 @@
             <div class="col-12 mt-3">
               <textarea
                 class="form-control"
-                name=""
+                name="message"
                 id=""
                 cols="20"
                 rows="7"
-                value=""
                 [(ngModel)]="message"
               ></textarea>
             </div>
