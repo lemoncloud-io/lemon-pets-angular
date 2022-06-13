@@ -15,6 +15,7 @@ import { CoreModule } from '@core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '@shared/shared.module';
 import { MainModule } from './modules/main/main.module';
+import { DragulaModule } from 'ng2-dragula';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,6 @@ import { MainModule } from './modules/main/main.module';
     EditProfileComponent,
     NotificationComponent,
     MainComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -36,8 +36,8 @@ import { MainModule } from './modules/main/main.module';
     CoreModule,
     HttpClientModule,
     SharedModule,
-    MainModule
-    
+    MainModule,
+    DragulaModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

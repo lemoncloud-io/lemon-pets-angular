@@ -7,6 +7,7 @@ import { WriteDogpostComponent } from './write-post/write-dogpost/write-dogpost.
 import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-post.component';
 import { WritePostComponent } from './write-post/write-post.component';
 import { FormsModule } from '@angular/forms';
+import { DragulaModule } from 'ng2-dragula';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,6 @@ import { FormsModule } from '@angular/forms';
     WriteDogpostComponent,
     WriteEtcPostComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, DragulaModule.forRoot()],
 })
 export class MainModule {}

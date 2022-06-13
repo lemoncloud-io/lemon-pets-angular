@@ -3,30 +3,91 @@
     <div class="col-12 p-3">
       <a routerLink="/main"
         ><i class="fa-solid fa-angle-left"></i>
-        <span class="font-weight-bold ml-3">기타 게시글 작성</span></a
+        <span class="font-weight-bold ml-3">강아지 게시글 작성</span></a
       >
     </div>
   </div>
   <hr />
   <div class="row">
     <div class="col-12">
-      <a
-        data-toggle="modal"
-        data-target=".bd-example-modal-sm"
-        class="selectTopic"
-      >
-        <span>주제를 선택해주세요.</span>
+      <a data-toggle="modal" data-target="#myModal" class="selectTopic">
+        <span>{{
+          selectedTopic === "" ? "주제를 선택해주세요" : selectedValue
+        }}</span>
         <i class="fa-solid fa-caret-down"></i>
       </a>
     </div>
   </div>
-  <div class="row"></div>
+  <div class="row">
+    <div class="col-12">
+      <form #usersForm="ngForm" (ngSubmit)="getUserFormData(usersForm.value)">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 mt-3">
+              <p>게시글의 이미지를 등록해주세요.</p>
+              <div class="row">
+                <div class="col-2">
+                  <label for="file-upload" class="custom-file-upload">
+                    <div class="fileUpload">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <input
+                      type="file"
+                      id="file-upload"
+                      (change)="uploadImage($event)"
+                      hidden
+                      multiple
+                    />
+                  </label>
+                </div>
+                <div class="col-10">
+                  <div
+                    class="imgContainer"
+                    [dragula]="'bag-one'"
+                    [dragulaModel]="imagestoShow"
+                  >
+                    <div *ngFor="let url of imagestoShow">
+                      <img [src]="url" alt="" draggable="true" />
+                      <i
+                        class="fa-solid fa-circle-xmark"
+                        (click)="deleteImage(url)"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mt-3">
+              <textarea
+                class="form-control"
+                name="message"
+                id=""
+                cols="20"
+                rows="7"
+                [(ngModel)]="message"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <button
+            type="submit"
+            class="btn btn-purple-filled text-center m-3"
+            (click)="onproductUpload()"
+          >
+            등록
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <!-- modal  -->
 
 <div
-  class="modal fade bd-example-modal-sm"
+  class="modal fade"
+  id="myModal"
   tabindex="-1"
   role="dialog"
   aria-labelledby="mySmallModalLabel"
@@ -47,33 +108,27 @@
       </div>
       <div class="modal-body px-4 pb-4">
         <div class="pb-4">
-          <div class="form-check">
+          <div class="form-check" *ngFor="let category of listCategories.list">
             <input
               class="form-check-input"
               type="radio"
               name="exampleRadios"
               id="exampleRadios1"
-              value="option1"
-              checked
+              value="{{ category.code }}"
+              [(ngModel)]="selectedTopic"
             />
             <label class="form-check-label mx-1" for="exampleRadios1">
-              자랑하기
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios2"
-              value="option2"
-            />
-            <label class="form-check-label mx-1" for="exampleRadios2">
-              판매
+              {{ category.nameEn }}
             </label>
           </div>
         </div>
-        <button class="btn btn-purple-filled text-center">적용하기</button>
+        <button
+          class="btn btn-purple-filled text-center"
+          (click)="applyTopic()"
+          data-dismiss="modal"
+        >
+          적용하기
+        </button>
       </div>
     </div>
   </div>

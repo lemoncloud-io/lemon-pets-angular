@@ -6,3 +6,79 @@
   text-decoration: none;
   color: $light;
 }
+
+.titleConainer {
+  @include flex;
+  justify-content: space-between;
+}
+
+.modal-dialog {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10040;
+  overflow: auto;
+  overflow-y: auto;
+}
+
+.fileUpload {
+  width: 50px;
+  height: 50px;
+  border: 2px solid $light;
+  border-radius: 10px;
+  display: inline-block;
+  @include flex;
+  justify-content: center;
+}
+
+.imgContainer {
+  @include flex;
+  overflow-x: scroll;
+  div {
+    position: relative;
+    margin: 10px;
+
+    border-radius: 5px;
+    &:selected {
+      border: 1px solid $primary;
+    }
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    i {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+    }
+  }
+}
+
+/* in-flight clone */
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  pointer-events: none;
+}
+/* high-performance display:none; helper */
+.gu-hide {
+  left: -9999px !important;
+}
+/* added to mirrorContainer (default = body) while dragging */
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+/* added to the source element while its mirror is dragged */
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}
