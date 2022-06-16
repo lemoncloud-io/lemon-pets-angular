@@ -1,7 +1,22 @@
 <app-navbar></app-navbar>
-
+<select
+  name="selectfilter"
+  id=""
+  class="form-select"
+  [(ngModel)]="filterString"
+>
+  <!-- <option selected>My Page</option> -->
+  <option Selected disabled>My Page</option>
+  <option value="">All</option>
+  <option value="Cat">Cat</option>
+  <option value="Dog">Dog</option>
+  <option value="Etc">Etc</option>
+</select>
 <div class="container">
-  <div class="row product" *ngFor="let content of fetchedContents">
+  <div
+    class="row product"
+    *ngFor="let content of fetchedContents | filterPipe: filterString"
+  >
     <div class="col-12">
       <div class="row">
         <div class="col-4 centerMid">

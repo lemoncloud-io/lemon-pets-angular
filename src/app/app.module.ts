@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '@shared/shared.module';
 import { MainModule } from './modules/main/main.module';
 import { DragulaModule } from 'ng2-dragula';
+import { FilterPipePipe } from './modules/main/pipe/filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DragulaModule } from 'ng2-dragula';
     EditProfileComponent,
     NotificationComponent,
     MainComponent,
+    FilterPipePipe,
   ],
   imports: [
     BrowserModule,
