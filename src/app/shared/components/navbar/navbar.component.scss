@@ -30,3 +30,7 @@ app-sidebar.active {
   overflow: auto;
   overflow-y: auto;
 }
+
+select:invalid {
+  color: rgb(247, 0, 0);
+}

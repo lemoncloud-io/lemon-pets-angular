@@ -13,6 +13,7 @@
       class="dropdown-item"
       *ngFor="let tags of listTags.list"
       routerLink="write{{ tags.code }}post"
+      [ngClass]="tags.code === '' ? 'dropdownClass' : 'none'"
     >
       <img src="./assets/{{ tags.code }}Icon.svg" alt="" />
       {{ "Write a " + tags.code + " post" }}</a

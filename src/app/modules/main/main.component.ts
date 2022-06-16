@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Content } from './items.model';
 import { PetsApiService } from '@core/services/pets-api.service';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, filter } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
+import { PublicApisService } from '@app/services/public-apis.service';
 
 @Component({
   selector: 'app-main',
@@ -14,10 +15,19 @@ export class MainComponent implements OnInit, OnDestroy {
 
   fetchedContents: Content[] = [];
   changesLanguage = '';
+  filterString: string = '';
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor(private petsApiService: PetsApiService) {}
+  constructor(
+    private petsApiService: PetsApiService,
+    private action: PublicApisService
+  ) {
+    // this.action.filterSubject.subscribe((data) => {
+    //   this.filterString = data;
+    //   console.log(this.filterString);
+    // });
+  }
 
   ngOnInit(): void {
     const defaultParams = { page: 0, limit: 10 };

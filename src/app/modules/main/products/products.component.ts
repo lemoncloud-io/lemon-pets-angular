@@ -34,7 +34,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     };
     const defaultParams = { page: 0, limit: 10 };
     this.petsApiService
-      .fetchContents$(defaultParams)
+      .fetchproduct$()
       .pipe(takeUntil(this.destroyed$))
       .subscribe(({ list }) => {
         console.log(list);
