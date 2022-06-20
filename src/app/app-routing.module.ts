@@ -20,7 +20,7 @@ const routes: Routes = [
   { component: MyPageComponent, path: 'mypage', canActivate: [AuthGuard] },
   {
     component: ProductsComponent,
-    path: 'product/:id/:name',
+    path: 'product/:id',
     canActivate: [AuthGuard],
   },
   { component: MainComponent, path: '', canActivate: [AuthGuard] },

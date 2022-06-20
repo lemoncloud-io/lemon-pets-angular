@@ -1,17 +1,16 @@
-<app-navbar></app-navbar>
-<select
+<app-navbar (linkvalue)="linkvalue($event)"></app-navbar>
+<!-- <select
   name="selectfilter"
   id=""
   class="form-select"
   [(ngModel)]="filterString"
 >
-  <!-- <option selected>My Page</option> -->
   <option Selected disabled>My Page</option>
   <option value="">All</option>
   <option value="Cat">Cat</option>
   <option value="Dog">Dog</option>
   <option value="Etc">Etc</option>
-</select>
+</select> -->
 <div class="container">
   <div
     class="row product"
@@ -20,7 +19,7 @@
     <div class="col-12">
       <div class="row">
         <div class="col-4 centerMid">
-          <a routerLink="/product/{{ content.id }}/{{ content.text }}">
+          <a routerLink="/product/{{ content.id }}">
             <img [src]="content.images[0] || DEFAULT_IMAGE" alt="" />
           </a>
         </div>

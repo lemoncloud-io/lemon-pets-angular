@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { PublicApisService } from '@app/services/public-apis.service';
+import { PublicApisService } from '@app/core/services/public-apis.service';
 import { HttpClient } from '@angular/common/http';
 import {
   ImageApiService,

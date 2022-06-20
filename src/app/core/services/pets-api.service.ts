@@ -4,13 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { LemonAuthService } from './lemon-auth.service';
 import { UtilsService } from './utils.service';
 import { environment } from '@env/environment';
-import { delay } from 'rxjs';
+import { delay, Subject } from 'rxjs';
+import { Content } from '../../modules/main/products/productData.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PetsApiService {
   private isLocal: boolean = true;
+  productId = new Subject<number>();
+  idofProduct: number = 1000387;
 
   constructor(
     private httpClient: LemonAuthService,
@@ -38,7 +41,7 @@ export class PetsApiService {
     return this.httpClient.request$(
       'GET',
       environment.petsApiEndpoint,
-      '/contents/1000387'
+      '/contents/' + this.idofProduct
     );
   }
 

@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Content } from './items.model';
 import { PetsApiService } from '@core/services/pets-api.service';
 import { takeUntil, filter } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
-import { PublicApisService } from '@app/services/public-apis.service';
+import { PublicApisService } from '@app/core/services/public-apis.service';
 
 @Component({
   selector: 'app-main',
@@ -15,18 +15,18 @@ export class MainComponent implements OnInit, OnDestroy {
 
   fetchedContents: Content[] = [];
   changesLanguage = '';
-  filterString: string = '';
+  filterString: string;
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor(
     private petsApiService: PetsApiService,
     private action: PublicApisService
-  ) {
-    // this.action.filterSubject.subscribe((data) => {
-    //   this.filterString = data;
-    //   console.log(this.filterString);
-    // });
+  ) {}
+
+  linkvalue(event: string) {
+    this.filterString = event;
+    console.log(this.filterString);
   }
 
   ngOnInit(): void {
@@ -35,7 +35,6 @@ export class MainComponent implements OnInit, OnDestroy {
       .fetchContents$(defaultParams)
       .pipe(takeUntil(this.destroyed$))
       .subscribe(({ list }) => {
-        console.log(list);
         this.fetchedContents = list;
       });
   }
@@ -43,9 +42,5 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroyed$.next(true);
     this.destroyed$.complete();
-  }
-
-  onLanguageValueReceived(addedValue: { languageValue: string }) {
-    this.changesLanguage = addedValue.languageValue;
   }
 }

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ImageApiService } from '@app/core/services/image-api.service';
 import { LemonAuthService } from '@app/core/services/lemon-auth.service';
 import { toArray } from 'rxjs';
-import { PublicApisService } from '@app/services/public-apis.service';
+import { PublicApisService } from '@app/core/services/public-apis.service';
 import { dragula, DragulaService } from 'ng2-dragula';
 @Component({
   selector: 'app-write-dogpost',
@@ -17,7 +17,7 @@ export class WriteDogpostComponent {
   imagestoShow = [];
   message: string = '';
   tags = ['a', 'b', 'c'];
-  subject: string = 'Dog';
+  subject: string = 'dog';
   dragArea: any;
 
   constructor(
