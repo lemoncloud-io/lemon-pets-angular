@@ -8,12 +8,12 @@
       <i class="fa-solid fa-ellipsis-vertical"></i>
     </div>
   </div>
-  <div *ngFor="let productData of fetchedContents">
+  <div>
     <!-- <div> -->
     <div class="row py-3">
       <div class="col-12">
         <img
-          [src]="productData.images[0] || DEFAULT_IMAGE"
+          [src]="fetchedContents.images[0] || DEFAULT_IMAGE"
           alt=""
           class="w-100"
         />
@@ -23,15 +23,17 @@
     <div class="row">
       <div class="col-12 profile">
         <img src="./assets/product_profile.png" alt="" class="mr-3" />
-        <span class="font-weight-bold"> {{ productData.author.name }} </span>
-        <span class="font-weight-bold">{{ productData.category }} </span>
+        <span class="font-weight-bold">
+          {{ fetchedContents.author.name }}
+        </span>
+        <span class="font-weight-bold">{{ fetchedContents.category }} </span>
       </div>
     </div>
     <hr />
     <div class="row">
       <div class="col-6">
         <span class="mr-4">고양이</span
-        ><span>{{ productData.postedAt | date: "yyyy.MM.dd" }}</span>
+        ><span>{{ fetchedContents.postedAt | date: "yyyy.MM.dd" }}</span>
       </div>
       <div class="col-6 text-right">
         <button class="btn btn-round btn-purple">거래진행중</button>
@@ -40,7 +42,7 @@
     <div class="row py-3">
       <div class="col-12">
         <p class="font-weight-bold mb-0">
-          {{ productData.text }}
+          {{ fetchedContents.text }}
         </p>
       </div>
     </div>

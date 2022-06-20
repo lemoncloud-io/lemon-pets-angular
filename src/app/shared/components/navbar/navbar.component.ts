@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { PublicApisService } from '@app/services/public-apis.service';
+import { PublicApisService } from '@app/core/services/public-apis.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +11,8 @@ export class NavbarComponent implements OnInit {
   listCategories: any = [];
   languageValue: '';
   language: string;
-  linkvalue: string;
+  selectedValue = '';
+  @Output() public linkvalue = new EventEmitter<string>();
   constructor(private action: PublicApisService) {
     this.action.getLanguage().subscribe((data) => {
       this.listLanguage = data;
@@ -19,7 +20,6 @@ export class NavbarComponent implements OnInit {
 
     this.action.getListTags().subscribe((data) => {
       this.listCategories = data;
-      console.log(this.listCategories);
     });
   }
 
@@ -39,6 +39,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.action.filterSubject.next(this.linkvalue);
+    this.linkvalue.emit(this.selectedValue);
   }
 }

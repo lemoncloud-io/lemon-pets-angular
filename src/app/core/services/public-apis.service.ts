@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { LemonAuthService } from '@app/core/services/lemon-auth.service';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,23 +11,27 @@ export class PublicApisService {
   constructor(private http: HttpClient, private lemonAuth: LemonAuthService) {}
 
   language = new Subject<string>();
-  filterSubject = new Subject<string>();
+  // filterSubject = new Subject<string>();
   uploadedProfileimage = new BehaviorSubject<any>('');
   dataBus: any = {};
 
+  // API call to get list of language
   getLanguage() {
-    let url = 'https://api.pets-like.com/d1/public/list-languages';
-    return this.http.get(url);
+    return this.http.get(
+      environment.petsApiEndpoint + '/public/list-languages'
+    );
   }
 
+  // API call to get list of tags
   getListTags() {
-    let url = 'https://api.pets-like.com/d1/public/list-tags';
-    return this.http.get(url);
+    return this.http.get(environment.petsApiEndpoint + '/public/list-tags');
   }
 
+  // API call to get list of Categories
   getlistCategory() {
-    let url = 'https://api.pets-like.com/d1/public/list-categories';
-    return this.http.get(url);
+    return this.http.get(
+      environment.petsApiEndpoint + '/public/list-categories'
+    );
   }
 
   setProfileImage(profileImage) {

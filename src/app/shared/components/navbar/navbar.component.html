@@ -15,7 +15,12 @@
       }}</a>
     </div>
   </div> -->
-  <select name="selectfilter" id="" class="form-select" [(ngModel)]="linkvalue">
+  <select
+    name="selectfilter"
+    id=""
+    class="form-select"
+    [(ngModel)]="selectedValue"
+  >
     <!-- <option selected>My Page</option> -->
     <option
       *ngFor="let category of listCategories.list"
@@ -24,7 +29,7 @@
       {{ category.nameEn }}
     </option>
   </select>
-  {{ linkvalue }}
+  {{ selectedValue }}
   <div class="icon-container">
     <a data-toggle="modal" data-target=".bd-example-modal-sm" class="mr-3"
       ><img src="./assets/translate_black_24dp.png" alt=""
@@ -49,9 +54,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="titleConainer p-4">
-        <h5 class="modal-title">
-          {{ language === "ko" ? "언어변경" : "Change Language" }}
-        </h5>
+        <h5 class="modal-title">Change Language</h5>
         <button
           type="button"
           class="close"
@@ -73,7 +76,7 @@
               [(ngModel)]="languageValue"
             />
             <label class="form-check-label mx-1" for="exampleRadios2">
-              {{ language === "ko" ? item.name : item.nameEn }}
+              {{ item.nameEn }}
             </label>
           </div>
         </div>
@@ -82,7 +85,7 @@
           (click)="applyLanguage()"
           data-dismiss="modal"
         >
-          {{ language === "ko" ? "적용하기" : "Apply" }}
+          Apply
         </button>
       </div>
     </div>

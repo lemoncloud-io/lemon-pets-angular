@@ -96,8 +96,4 @@ export class AppComponent implements OnInit {
 
     this.router.navigate(['/main']).then(() => this.loaderService.hide());
   }
-
-  onLanguageValueReceived(addedValue: { languageValue: string }) {
-    this.changesLanguage = addedValue.languageValue;
-  }
 }
