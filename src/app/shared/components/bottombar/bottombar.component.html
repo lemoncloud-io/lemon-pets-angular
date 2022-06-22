@@ -9,15 +9,18 @@
   ></a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a
-      class="dropdown-item"
-      *ngFor="let tags of listTags.list"
-      routerLink="write{{ tags.code }}post"
-      [ngClass]="tags.code === '' ? 'dropdownClass' : 'none'"
-    >
-      <img src="./assets/{{ tags.code }}Icon.svg" alt="" />
-      {{ "Write a " + tags.code + " post" }}</a
-    >
+    <a class="dropdown-item" routerLink="writedogpost">
+      <img src="./assets/dogIcon.svg" alt="" />
+      {{ "bottombar.writePost.item1" | translate }}
+    </a>
+    <a class="dropdown-item" routerLink="writecatpost">
+      <img src="./assets/catIcon.svg" alt="" />
+      {{ "bottombar.writePost.item2" | translate }}
+    </a>
+    <a class="dropdown-item" routerLink="writeetcpost">
+      <img src="./assets/etcIcon.svg" alt="" />
+      {{ "bottombar.writePost.item3" | translate }}
+    </a>
   </div>
 </div>
 
@@ -26,19 +29,19 @@
     <div class="col-4">
       <a routerLink="">
         <div class="icon"><i class="fa-solid fa-house"></i></div>
-        <div class="text">Main</div>
+        <div class="text">{{ "bottombar.item1" | translate }}</div>
       </a>
     </div>
     <div class="col-4">
       <a routerLink="community">
         <div class="icon"><i class="fa-solid fa-file-lines"></i></div>
-        <div class="text">Community</div>
+        <div class="text">{{ "bottombar.item2" | translate }}</div>
       </a>
     </div>
     <div class="col-4">
       <a routerLink="mypage">
         <div class="icon"><i class="fa-solid fa-user"></i></div>
-        <div class="text">My page</div>
+        <div class="text">{{ "bottombar.item3" | translate }}</div>
       </a>
     </div>
   </div>

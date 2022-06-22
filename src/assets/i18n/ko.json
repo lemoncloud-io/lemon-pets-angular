@@ -1,0 +1,29 @@
+{
+  "sidebar": {
+    "subCatgory1": "앱활동",
+    "item1": "관심목록",
+    "item2": "내가 작성한 게시글",
+    "subCatgory2": "고객센터",
+    "item3": "1:1 문의",
+    "subCatgory3": "앱정보",
+    "item4": "공지사항",
+    "item5": "이용약관",
+    "item6": "개인정보처리방침",
+    "item7": "버전"
+  },
+
+  "bottombar": {
+    "item1": "메인",
+    "item2": "커뮤니티",
+    "item3": "마이페이지",
+    "writePost": {
+      "item1": "강아지 게시글 작성",
+      "item2": "고양이 게시글 작성",
+      "item3": "기타 게시글 작성"
+    }
+  },
+  "navbar": {
+    "title": "언어변경",
+    "korean": "한국어"
+  }
+}

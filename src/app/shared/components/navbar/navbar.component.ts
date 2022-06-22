@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { PublicApisService } from '@app/core/services/public-apis.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,10 @@ export class NavbarComponent implements OnInit {
   language: string;
   selectedValue = '';
   @Output() public linkvalue = new EventEmitter<string>();
-  constructor(private action: PublicApisService) {
+  constructor(
+    private action: PublicApisService,
+    private translateService: TranslateService
+  ) {
     this.action.getLanguage().subscribe((data) => {
       this.listLanguage = data;
     });
@@ -35,7 +39,7 @@ export class NavbarComponent implements OnInit {
 
   applyLanguage() {
     this.language = this.languageValue;
-    this.action.language.next(this.language);
+    this.translateService.use(this.language);
   }
 
   ngOnInit(): void {

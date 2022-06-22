@@ -1,0 +1,16 @@
+{
+  "sidebar": {
+    "menuheader1": {
+      "subCatgory1": "app activity",
+      "item1": "Watchlist",
+      "item2": "Post I wrote",
+      "subCatgory2": "Service center",
+      "item3": "1:1 Inquiry",
+      "subCatgory3": "App information",
+      "item4": "Announcement",
+      "item5": "Terms of service",
+      "item6": "Privacy policy",
+      "item7": "Version"
+    }
+  }
+}

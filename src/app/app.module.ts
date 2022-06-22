@@ -17,6 +17,7 @@ import { SharedModule } from '@shared/shared.module';
 import { MainModule } from './modules/main/main.module';
 import { DragulaModule } from 'ng2-dragula';
 import { FilterPipePipe } from './modules/main/pipe/filter-pipe.pipe';
+import { LangTranslateModule } from './modules/lang-translate/lang-translate.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FilterPipePipe } from './modules/main/pipe/filter-pipe.pipe';
     HttpClientModule,
     SharedModule,
     MainModule,
+    LangTranslateModule,
     DragulaModule.forRoot(),
   ],
   providers: [],
