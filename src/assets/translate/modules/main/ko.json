@@ -1,0 +1,16 @@
+{
+  "sidebar": {
+    "menuheader1": {
+      "subCatgory1": "앱활동",
+      "item1": "관심목록",
+      "item2": "내가 작성한 게시글",
+      "subCatgory2": "고객센터",
+      "item3": "1:1 문의",
+      "subCatgory3": "앱정보",
+      "item4": "공지사항",
+      "item5": "이용약관",
+      "item6": "개인정보처리방침",
+      "item7": "버전"
+    }
+  }
+}
