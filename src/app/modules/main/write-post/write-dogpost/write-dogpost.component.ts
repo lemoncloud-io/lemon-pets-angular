@@ -20,6 +20,9 @@ export class WriteDogpostComponent {
   subject: string = 'dog';
   dragArea: any;
 
+  updateProfile: any = {};
+  uploadedFile: any = '';
+
   constructor(
     private action: PublicApisService,
     private http: HttpClient,
@@ -40,12 +43,26 @@ export class WriteDogpostComponent {
 
   uploadImage(event) {
     if (event.target.files) {
-      for (let i = 0; i < 10; i++) {
-        var reader = new FileReader();
-        reader.readAsDataURL(event.target.files[i]);
-        reader.onload = (event: any) => {
-          this.imagestoShow.push(event.target.result);
-        };
+      console.log(event.target.files);
+      for (let i = 0; i < 10 && i < event.target.files.length; i++) {
+        // var reader = new FileReader();
+        let imgTarget = event.target.files[i];
+        const fd = new FormData();
+        fd.append('file1', imgTarget);
+
+        // send `POST` request
+        console.log(imgTarget);
+        console.log(fd);
+        (async () => {
+          let img = (
+            await fetch('https://api.pets-like.com/img-v1/upload', {
+              method: 'POST',
+              body: fd,
+            }).then((res) => res.json())
+          ).list[0].url;
+          console.log(img);
+          this.imagestoShow.push(img);
+        })();
       }
     }
   }
@@ -55,8 +72,6 @@ export class WriteDogpostComponent {
       if (value == url) this.imagestoShow.splice(index, 1);
     });
   }
-
-  getUserFormData(data: any) {}
 
   onproductUpload() {
     this.authRequest

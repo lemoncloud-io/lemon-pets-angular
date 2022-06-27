@@ -1,35 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
-  <!-- <div class="dropdown">
-    <button
-      class="btn dropdown-toggle font-weight-bold"
-      type="button"
-      id="dropdownMenuButton"
-      data-toggle="dropdown"
-      aria-expanded="false"
-    >
-      {{ language === "ko" ? "마이페이지" : "My Page" }}
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" *ngFor="let category of listCategories.list">{{
-        language === "ko" ? category.name : category.nameEn
-      }}</a>
-    </div>
-  </div> -->
   <select
     name="selectfilter"
     id=""
     class="form-select"
     [(ngModel)]="selectedValue"
+    (change)="callSelectedValue()"
   >
     <!-- <option selected>My Page</option> -->
     <option
       *ngFor="let category of listCategories.list"
-      value="{{ category.nameEn }}"
+      value="{{ category.code }}"
     >
       {{ category.nameEn }}
     </option>
   </select>
-  {{ selectedValue }}
+
   <div class="icon-container">
     <a data-toggle="modal" data-target=".bd-example-modal-sm" class="mr-3"
       ><img src="./assets/translate_black_24dp.png" alt=""

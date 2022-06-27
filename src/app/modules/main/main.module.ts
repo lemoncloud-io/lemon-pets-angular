@@ -8,6 +8,7 @@ import { WriteEtcPostComponent } from './write-post/write-etc-post/write-etc-pos
 import { WritePostComponent } from './write-post/write-post.component';
 import { FormsModule } from '@angular/forms';
 import { DragulaModule } from 'ng2-dragula';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,12 @@ import { DragulaModule } from 'ng2-dragula';
     WriteDogpostComponent,
     WriteEtcPostComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule, DragulaModule.forRoot()],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    DragulaModule.forRoot(),
+    SwiperModule,
+  ],
 })
 export class MainModule {}

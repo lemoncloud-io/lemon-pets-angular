@@ -7,13 +7,12 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   listLanguage: any = [];
   listCategories: any = [];
   languageValue: '';
   language: string;
   selectedValue = '';
-  @Output() public linkvalue = new EventEmitter<string>();
   constructor(
     private action: PublicApisService,
     private translateService: TranslateService
@@ -25,6 +24,10 @@ export class NavbarComponent implements OnInit {
     this.action.getListTags().subscribe((data) => {
       this.listCategories = data;
     });
+  }
+
+  callSelectedValue() {
+    this.action.filterSubject.next(this.selectedValue);
   }
 
   check: boolean = !false;
@@ -40,9 +43,5 @@ export class NavbarComponent implements OnInit {
   applyLanguage() {
     this.language = this.languageValue;
     this.translateService.use(this.language);
-  }
-
-  ngOnInit(): void {
-    this.linkvalue.emit(this.selectedValue);
   }
 }

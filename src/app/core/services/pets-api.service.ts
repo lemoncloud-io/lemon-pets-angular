@@ -13,7 +13,7 @@ import { Content } from '../../modules/main/products/productData.model';
 export class PetsApiService {
   private isLocal: boolean = true;
   productId = new Subject<number>();
-  idofProduct: number = 1000387;
+  idofProduct: number = 1000471;
 
   constructor(
     private httpClient: LemonAuthService,
