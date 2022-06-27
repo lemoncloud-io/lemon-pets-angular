@@ -22,11 +22,10 @@ export class MainComponent implements OnInit, OnDestroy {
   constructor(
     private petsApiService: PetsApiService,
     private action: PublicApisService
-  ) {}
-
-  linkvalue(event: string) {
-    this.filterString = event;
-    console.log(this.filterString);
+  ) {
+    this.action.filterSubject.subscribe((res) => {
+      this.filterString = res;
+    });
   }
 
   ngOnInit(): void {
@@ -36,6 +35,7 @@ export class MainComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroyed$))
       .subscribe(({ list }) => {
         this.fetchedContents = list;
+        console.log(this.fetchedContents);
       });
   }
 

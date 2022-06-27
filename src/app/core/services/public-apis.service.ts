@@ -11,9 +11,10 @@ export class PublicApisService {
   constructor(private http: HttpClient, private lemonAuth: LemonAuthService) {}
 
   language = new Subject<string>();
-  // filterSubject = new Subject<string>();
+  filterSubject = new BehaviorSubject<string>('');
   uploadedProfileimage = new BehaviorSubject<any>('');
   dataBus: any = {};
+  dataBus2: any = [];
 
   // API call to get list of language
   getLanguage() {
@@ -40,5 +41,13 @@ export class PublicApisService {
 
   getPrfileImage() {
     return this.dataBus['imageDetails'];
+  }
+
+  setImageArray(profileImage) {
+    this.dataBus2['imageDetails'] = profileImage;
+  }
+
+  getImageArray() {
+    return this.dataBus2['imageDetails'];
   }
 }

@@ -30,6 +30,7 @@
     "ng2-dragula": "^2.1.1",
     "ngx-translate-multi-http-loader": "^8.0.1",
     "rxjs": "~7.5.0",
+    "swiper": "^8.2.4",
     "tslib": "^2.3.0",
     "util": "^0.12.4",
     "whatwg-fetch": "3.0.0",

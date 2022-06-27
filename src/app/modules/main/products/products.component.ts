@@ -4,6 +4,7 @@ import { PetsApiService } from '@core/services/pets-api.service';
 import { takeUntil } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import SwiperCore, { SwiperOptions } from 'swiper';
 
 @Component({
   selector: 'app-products',
@@ -11,6 +12,20 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit, OnDestroy {
+  config: SwiperOptions = {
+    slidesPerView: 3,
+    spaceBetween: 50,
+    navigation: true,
+    pagination: { clickable: true },
+    scrollbar: { draggable: true },
+  };
+  onSwiper([swiper]) {
+    console.log(swiper);
+  }
+  onSlideChange() {
+    console.log('slide change');
+  }
+
   DEFAULT_IMAGE = './assets/dog_profile.png';
   fetchedContents: Content;
   fetchedMoreproducts = [];
