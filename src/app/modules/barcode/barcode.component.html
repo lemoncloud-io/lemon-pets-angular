@@ -1,0 +1,18 @@
+<div class="barCode">
+  <p>Input some value</p>
+  <input
+    placeholder="bc-value"
+    [(ngModel)]="value"
+    class="form-control"
+    maxlength="8"
+  />
+  <div class="barcodeBox centerMid">
+    <ngx-barcode
+      *ngFor="let bcValue of values"
+      [bc-value]="bcValue"
+      [bc-width]="width"
+      [bc-display-value]="displayValue"
+    ></ngx-barcode>
+    <!-- <p>{{ value }}</p> -->
+  </div>
+</div>

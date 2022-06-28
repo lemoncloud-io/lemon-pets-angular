@@ -3,7 +3,9 @@
     <div class="col-12 p-3">
       <a routerLink="/main"
         ><i class="fa-solid fa-angle-left"></i>
-        <span class="font-weight-bold ml-3"> 고양이 게시글 작성</span></a
+        <span class="font-weight-bold ml-3">{{
+          "writePost.titleForCat" | translate
+        }}</span></a
       >
     </div>
   </div>
@@ -11,20 +13,18 @@
   <div class="row">
     <div class="col-12">
       <a data-toggle="modal" data-target="#myModal" class="selectTopic">
-        <span>{{
-          selectedTopic === "" ? "주제를 선택해주세요" : selectedValue
-        }}</span>
+        <span>{{ "writePost.selectTopic" | translate }}</span>
         <i class="fa-solid fa-caret-down"></i>
       </a>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <form #usersForm="ngForm" (ngSubmit)="getUserFormData(usersForm.value)">
+      <form #usersForm="ngForm">
         <div class="container">
           <div class="row">
             <div class="col-12 mt-3">
-              <p>게시글의 이미지를 등록해주세요.</p>
+              <p>{{ "writePost.registerNote" | translate }}</p>
               <div class="row">
                 <div class="col-2">
                   <label for="file-upload" class="custom-file-upload">
@@ -75,7 +75,7 @@
             class="btn btn-purple-filled text-center m-3"
             (click)="onproductUpload()"
           >
-            등록
+            {{ "writePost.registration" | translate }}
           </button>
         </div>
       </form>
@@ -96,7 +96,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="titleConainer p-4">
-        <h5 class="modal-title">게시글 주제선택</h5>
+        <h5 class="modal-title">{{ "writePost.selectPost" | translate }}</h5>
         <button
           type="button"
           class="close"
@@ -127,7 +127,7 @@
           (click)="applyTopic()"
           data-dismiss="modal"
         >
-          적용하기
+          {{ "writePost.apply" | translate }}
         </button>
       </div>
     </div>

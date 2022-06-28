@@ -35,19 +35,12 @@ export class PublicApisService {
     );
   }
 
+  // Function for profile image
   setProfileImage(profileImage) {
     this.dataBus['imageDetails'] = profileImage;
   }
 
   getPrfileImage() {
     return this.dataBus['imageDetails'];
-  }
-
-  setImageArray(profileImage) {
-    this.dataBus2['imageDetails'] = profileImage;
-  }
-
-  getImageArray() {
-    return this.dataBus2['imageDetails'];
   }
 }

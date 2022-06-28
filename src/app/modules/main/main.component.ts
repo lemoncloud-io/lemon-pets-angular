@@ -35,7 +35,6 @@ export class MainComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroyed$))
       .subscribe(({ list }) => {
         this.fetchedContents = list;
-        console.log(this.fetchedContents);
       });
   }
 

@@ -24,6 +24,20 @@
   },
   "navbar": {
     "title": "Change Language",
-    "korean": "Korean"
+    "korean": "Korean",
+    "apply": "apply"
+  },
+
+  "writePost": {
+    "titleForDog": "Write a dog post",
+    "titleForCat": "Write a cat post",
+    "titleForEtc": "Write a etc post",
+    "selectTopic": "Please select a topic.",
+    "selectPost": "Select post topic",
+    "option": ["Brag", "Sale"],
+    "apply": "apply",
+    "registerNote": "Please register an image for your post.",
+    "registration": "registration",
+    "share": "share"
   }
 }

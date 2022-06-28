@@ -9,6 +9,7 @@ import { WritePostComponent } from './write-post/write-post.component';
 import { FormsModule } from '@angular/forms';
 import { DragulaModule } from 'ng2-dragula';
 import { SwiperModule } from 'swiper/angular';
+import { LangTranslateModule } from '../lang-translate/lang-translate.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SwiperModule } from 'swiper/angular';
     FormsModule,
     DragulaModule.forRoot(),
     SwiperModule,
+    LangTranslateModule,
   ],
 })
 export class MainModule {}

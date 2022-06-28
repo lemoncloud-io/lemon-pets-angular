@@ -18,6 +18,8 @@ import { MainModule } from './modules/main/main.module';
 import { DragulaModule } from 'ng2-dragula';
 import { FilterPipePipe } from './modules/main/pipe/filter-pipe.pipe';
 import { LangTranslateModule } from './modules/lang-translate/lang-translate.module';
+import { BarcodeComponent } from './modules/barcode/barcode.component';
+import { NgxBarcodeModule } from 'ngx-barcode';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { LangTranslateModule } from './modules/lang-translate/lang-translate.mod
     NotificationComponent,
     MainComponent,
     FilterPipePipe,
+    BarcodeComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { LangTranslateModule } from './modules/lang-translate/lang-translate.mod
     SharedModule,
     MainModule,
     LangTranslateModule,
+    NgxBarcodeModule,
     DragulaModule.forRoot(),
   ],
   providers: [],

@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ImageApiService } from '@app/core/services/image-api.service';
 import { LemonAuthService } from '@app/core/services/lemon-auth.service';
 import { toArray } from 'rxjs';
 import { PublicApisService } from '@app/core/services/public-apis.service';
-import { dragula, DragulaService } from 'ng2-dragula';
 @Component({
   selector: 'app-write-dogpost',
   templateUrl: './write-dogpost.component.html',
@@ -20,21 +17,13 @@ export class WriteDogpostComponent {
   subject: string = 'dog';
   dragArea: any;
 
-  updateProfile: any = {};
-  uploadedFile: any = '';
-
   constructor(
     private action: PublicApisService,
-    private http: HttpClient,
-    private imgupload: ImageApiService,
-    private authRequest: LemonAuthService,
-    private dragulaService: DragulaService
+    private authRequest: LemonAuthService
   ) {
     this.action.getlistCategory().subscribe((data) => {
       this.listCategories = data;
-      console.log(this.listCategories);
     });
-    console.log(this.imagestoShow);
   }
 
   applyTopic() {
@@ -43,7 +32,6 @@ export class WriteDogpostComponent {
 
   uploadImage(event) {
     if (event.target.files) {
-      console.log(event.target.files);
       for (let i = 0; i < 10 && i < event.target.files.length; i++) {
         // var reader = new FileReader();
         let imgTarget = event.target.files[i];
@@ -51,8 +39,6 @@ export class WriteDogpostComponent {
         fd.append('file1', imgTarget);
 
         // send `POST` request
-        console.log(imgTarget);
-        console.log(fd);
         (async () => {
           let img = (
             await fetch('https://api.pets-like.com/img-v1/upload', {
@@ -60,7 +46,6 @@ export class WriteDogpostComponent {
               body: fd,
             }).then((res) => res.json())
           ).list[0].url;
-          console.log(img);
           this.imagestoShow.push(img);
         })();
       }
@@ -90,8 +75,6 @@ export class WriteDogpostComponent {
         }
       )
       .pipe(toArray())
-      .subscribe((res) => {
-        console.log(res);
-      });
+      .subscribe((res) => {});
   }
 }
