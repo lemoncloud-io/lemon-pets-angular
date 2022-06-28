@@ -24,6 +24,20 @@
   },
   "navbar": {
     "title": "언어변경",
-    "korean": "한국어"
+    "korean": "한국어",
+    "apply": "적용하기"
+  },
+
+  "writePost": {
+    "titleForDog": "강아지 게시글 작성",
+    "titleForCat": "고양이 게시글 작성",
+    "titleForEtc": "기타 게시글 작성",
+    "selectTopic": "주제를 선택해주세요.",
+    "selectPost": "게시글 주제선택",
+    "option": ["자랑하기", "판매"],
+    "apply": "적용하기",
+    "registerNote": "게시글의 이미지를 등록해주세요.",
+    "registration": "등록",
+    "share": "나눔"
   }
 }

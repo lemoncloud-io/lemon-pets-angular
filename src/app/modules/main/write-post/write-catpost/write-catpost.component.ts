@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ImageApiService } from '@app/core/services/image-api.service';
 import { LemonAuthService } from '@app/core/services/lemon-auth.service';
 import { toArray } from 'rxjs';
 import { PublicApisService } from '@app/core/services/public-apis.service';
-import { dragula, DragulaService } from 'ng2-dragula';
 
 @Component({
   selector: 'app-write-catpost',
@@ -23,16 +20,11 @@ export class WriteCatpostComponent {
 
   constructor(
     private action: PublicApisService,
-    private http: HttpClient,
-    private imgupload: ImageApiService,
-    private authRequest: LemonAuthService,
-    private dragulaService: DragulaService
+    private authRequest: LemonAuthService
   ) {
     this.action.getlistCategory().subscribe((data) => {
       this.listCategories = data;
-      console.log(this.listCategories);
     });
-    console.log(this.imagestoShow);
   }
 
   applyTopic() {
@@ -41,12 +33,22 @@ export class WriteCatpostComponent {
 
   uploadImage(event) {
     if (event.target.files) {
-      for (let i = 0; i < 10; i++) {
-        var reader = new FileReader();
-        reader.readAsDataURL(event.target.files[i]);
-        reader.onload = (event: any) => {
-          this.imagestoShow.push(event.target.result);
-        };
+      for (let i = 0; i < 10 && i < event.target.files.length; i++) {
+        // var reader = new FileReader();
+        let imgTarget = event.target.files[i];
+        const fd = new FormData();
+        fd.append('file1', imgTarget);
+
+        // send `POST` request
+        (async () => {
+          let img = (
+            await fetch('https://api.pets-like.com/img-v1/upload', {
+              method: 'POST',
+              body: fd,
+            }).then((res) => res.json())
+          ).list[0].url;
+          this.imagestoShow.push(img);
+        })();
       }
     }
   }
@@ -56,8 +58,6 @@ export class WriteCatpostComponent {
       if (value == url) this.imagestoShow.splice(index, 1);
     });
   }
-
-  getUserFormData(data: any) {}
 
   onproductUpload() {
     this.authRequest
@@ -76,8 +76,6 @@ export class WriteCatpostComponent {
         }
       )
       .pipe(toArray())
-      .subscribe((res) => {
-        console.log(res);
-      });
+      .subscribe((res) => {});
   }
 }

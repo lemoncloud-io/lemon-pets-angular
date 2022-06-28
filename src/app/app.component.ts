@@ -64,7 +64,6 @@ export class AppComponent implements OnInit {
         this.loaderService.hide();
         return;
       });
-    console.log('registerDevice:', registerDevice);
 
     // set deviceId to storage
     if (registerDevice.deviceId) {
@@ -92,7 +91,6 @@ export class AppComponent implements OnInit {
       {},
       { ...deviceInfo, deviceId }
     );
-    console.log('accountsInfo:', accountsInfo);
 
     this.router.navigate(['/main']).then(() => this.loaderService.hide());
   }

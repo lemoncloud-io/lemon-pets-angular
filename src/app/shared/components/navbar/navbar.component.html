@@ -16,6 +16,7 @@
   </select>
 
   <div class="icon-container">
+    <a routerLink="barcode" class="mr-3"><i class="fa-solid fa-barcode"></i></a>
     <a data-toggle="modal" data-target=".bd-example-modal-sm" class="mr-3"
       ><img src="./assets/translate_black_24dp.png" alt=""
     /></a>
@@ -70,7 +71,7 @@
           (click)="applyLanguage()"
           data-dismiss="modal"
         >
-          Apply
+          {{ "navbar.apply" | translate }}
         </button>
       </div>
     </div>

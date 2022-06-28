@@ -1,0 +1,14 @@
+@import "./src/styles.scss";
+
+.barCode {
+  width: 100%;
+  padding: 20px;
+  p {
+    font-weight: bold;
+  }
+
+  .barcodeBox {
+    border: 2px solid $primary;
+    margin: 20px 0;
+  }
+}
