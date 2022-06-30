@@ -26,19 +26,24 @@ export class NavbarComponent {
     });
   }
 
+  // Function for filter
   callSelectedValue() {
     this.action.filterSubject.next(this.selectedValue);
   }
 
+  // Sidebat toggle function
+
   check: boolean = !false;
 
-  myfunction() {
+  sidebarToggle() {
     if (this.check == false) {
       this.check = true;
     } else {
       this.check = false;
     }
   }
+
+  // Function for apply language
 
   applyLanguage() {
     this.language = this.languageValue;

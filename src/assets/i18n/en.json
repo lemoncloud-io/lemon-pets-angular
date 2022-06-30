@@ -39,5 +39,13 @@
     "registerNote": "Please register an image for your post.",
     "registration": "registration",
     "share": "share"
+  },
+
+  "product": {
+    "Attention": "Attention",
+    "check": "check",
+    "memberPost": "Posts by this member",
+    "ViewMore": "View more",
+    "relatedPost": "Related posts"
   }
 }

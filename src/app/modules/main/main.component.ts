@@ -35,6 +35,7 @@ export class MainComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroyed$))
       .subscribe(({ list }) => {
         this.fetchedContents = list;
+        console.log(this.fetchedContents);
       });
   }
 
@@ -42,4 +43,6 @@ export class MainComponent implements OnInit, OnDestroy {
     this.destroyed$.next(true);
     this.destroyed$.complete();
   }
+
+  sendProductId() {}
 }

@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { LemonAuthService } from './lemon-auth.service';
 import { UtilsService } from './utils.service';
 import { environment } from '@env/environment';
-import { delay, Subject } from 'rxjs';
-import { Content } from '../../modules/main/products/productData.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,11 +15,12 @@ export class PetsApiService {
 
   constructor(
     private httpClient: LemonAuthService,
-    private utils: UtilsService,
-    private http: HttpClient
+    private utils: UtilsService
   ) {
     this.isLocal = this.utils.isLocalEnv();
   }
+
+  // API to fetch list of products
 
   fetchContents$(params: Params) {
     // if (this.isLocal) {
@@ -37,6 +36,7 @@ export class PetsApiService {
     );
   }
 
+  // API to fetch product details
   fetchproduct$() {
     return this.httpClient.request$(
       'GET',
@@ -45,7 +45,8 @@ export class PetsApiService {
     );
   }
 
-  fetchMoreproduct$(params: Params) {
+  // API to fetch more products
+  fetchMoreProduct$(params: Params) {
     return this.httpClient.request$(
       'GET',
       environment.petsApiEndpoint,
@@ -53,6 +54,16 @@ export class PetsApiService {
     );
   }
 
+  // API to ftech related products
+  fetchRelatedProduct$(params: Params) {
+    return this.httpClient.request$(
+      'GET',
+      environment.petsApiEndpoint,
+      '/contents/1000387/related'
+    );
+  }
+
+  // API to upload product images to the server
   uploadProductImages$() {
     return this.httpClient.request$(
       'POST',
