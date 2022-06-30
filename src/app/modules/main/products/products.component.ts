@@ -28,7 +28,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   DEFAULT_IMAGE = './assets/dog_profile.png';
   fetchedContents: Content;
-  fetchedMoreproducts = [];
+  fetchedMoreProducts = [];
+  fetchedRelatedProducts = [];
 
   user: {
     id: number;
@@ -43,26 +44,26 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // this.user = {
-    //   id: this.route.snapshot.params['id'],
-    //   name: this.route.snapshot.params['name'],
-    // };
-    // const defaultParams = { page: 0, limit: 10 };
     this.petsApiService
       .fetchproduct$()
       .pipe(takeUntil(this.destroyed$))
       .subscribe((list) => {
         this.fetchedContents = list;
-        console.log(this.fetchedContents);
       });
 
     const MoreParams = { page: 1, limit: 4 };
     this.petsApiService
-      .fetchMoreproduct$(MoreParams)
+      .fetchMoreProduct$(MoreParams)
       .pipe(takeUntil(this.destroyed$))
-      .subscribe((list) => {
-        this.fetchedMoreproducts = list;
-        console.log(this.fetchedMoreproducts);
+      .subscribe(({ list }) => {
+        this.fetchedMoreProducts = list;
+      });
+
+    this.petsApiService
+      .fetchRelatedProduct$(MoreParams)
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(({ list }) => {
+        this.fetchedRelatedProducts = list;
       });
   }
 

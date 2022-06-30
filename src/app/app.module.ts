@@ -18,7 +18,7 @@ import { MainModule } from './modules/main/main.module';
 import { DragulaModule } from 'ng2-dragula';
 import { FilterPipePipe } from './modules/main/pipe/filter-pipe.pipe';
 import { LangTranslateModule } from './modules/lang-translate/lang-translate.module';
-import { BarcodeComponent } from './modules/barcode/barcode.component';
+import { BarcodeComponent } from './shared/components/barcode/barcode.component';
 import { NgxBarcodeModule } from 'ngx-barcode';
 
 @NgModule({

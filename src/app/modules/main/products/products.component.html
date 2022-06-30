@@ -12,12 +12,43 @@
     <!-- <div> -->
     <div class="row py-3">
       <div class="col-12">
-        <img
-          [src]="fetchedContents.images[0] || DEFAULT_IMAGE"
-          alt=""
-          class="w-100"
-        />
-        <!-- <img src="./assets/product_profile.png" alt="" class="w-100" /> -->
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div
+              class="carousel-item"
+              *ngFor="
+                let img of fetchedContents.images;
+                let index = index;
+                let isFirst = first
+              "
+              [ngClass]="{ active: isFirst }"
+            >
+              <img [src]="img" alt="" class="d-block w-100" />
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -48,40 +79,28 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <span class="mr-4">고양이</span><span>2021.11.20</span>
+        <span class="mr-4">{{ "product.Attention" | translate }}</span
+        ><span>{{ "product.check" | translate }}</span>
       </div>
     </div>
   </div>
   <div class="suggessions">
     <div class="suggessionsBox">
       <div class="boxTitle">
-        <p class="font-weight-bold">이 회원님의 게시글 (12)</p>
+        <p class="font-weight-bold">
+          {{ "product.memberPost" | translate }} (12)
+        </p>
       </div>
       <div class="viewMore">
-        <p>더보기</p>
+        <p>{{ "product.ViewMore" | translate }}</p>
       </div>
     </div>
     <div class="suggessionCard">
       <div class="row">
-        <div class="col-6">
-          <img src="./assets/product_profile.png" alt="" class="w-100" />
-          <div class="desc">고양이 용품 판매합니다. 모…</div>
-          <div class="price">50,000원</div>
-        </div>
-        <div class="col-6">
-          <img src="./assets/product_profile.png" alt="" class="w-100" />
-          <div class="desc">고양이 용품 판매합니다. 모…</div>
-          <div class="price">50,000원</div>
-        </div>
-        <div class="col-6">
-          <img src="./assets/product_profile.png" alt="" class="w-100" />
-          <div class="desc">고양이 용품 판매합니다. 모…</div>
-          <div class="price">50,000원</div>
-        </div>
-        <div class="col-6">
-          <img src="./assets/product_profile.png" alt="" class="w-100" />
-          <div class="desc">고양이 용품 판매합니다. 모…</div>
-          <div class="price">50,000원</div>
+        <div class="col-6" *ngFor="let post of fetchedMoreProducts">
+          <img [src]="post.images[0] || DEFAULT_IMAGE" alt="" />
+          <div class="desc">{{ post.text }}</div>
+          <div class="price">{{ post.extra.price }}</div>
         </div>
       </div>
     </div>
@@ -89,33 +108,17 @@
   <div class="suggessions">
     <div class="suggessionsBox">
       <div class="boxTitle">
-        <p class="font-weight-bold">이 회원님의 게시글 (12)</p>
-      </div>
-      <div class="viewMore">
-        <p>더보기</p>
+        <p class="font-weight-bold">
+          {{ "product.relatedPost" | translate }}(12)
+        </p>
       </div>
     </div>
     <div class="suggessionCard">
       <div class="row">
-        <div class="col-6">
-          <img src="./assets/product_profile.png" alt="" class="w-100" />
-          <div class="desc">고양이 용품 판매합니다. 모…</div>
-          <div class="price">50,000원</div>
-        </div>
-        <div class="col-6">
-          <img src="./assets/product_profile.png" alt="" class="w-100" />
-          <div class="desc">고양이 용품 판매합니다. 모…</div>
-          <div class="price">50,000원</div>
-        </div>
-        <div class="col-6">
-          <img src="./assets/product_profile.png" alt="" class="w-100" />
-          <div class="desc">고양이 용품 판매합니다. 모…</div>
-          <div class="price">50,000원</div>
-        </div>
-        <div class="col-6">
-          <img src="./assets/product_profile.png" alt="" class="w-100" />
-          <div class="desc">고양이 용품 판매합니다. 모…</div>
-          <div class="price">50,000원</div>
+        <div class="col-6" *ngFor="let post of fetchedRelatedProducts">
+          <img [src]="post.images[0] || DEFAULT_IMAGE" alt="" />
+          <div class="desc">{{ post.text }}</div>
+          <div class="price">{{ post.extra.price }}</div>
         </div>
       </div>
     </div>

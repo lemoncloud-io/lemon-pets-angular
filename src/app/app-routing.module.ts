@@ -10,7 +10,7 @@ import { ProductsComponent } from './modules/main/products/products.component';
 import { WriteCatpostComponent } from './modules/main/write-post/write-catpost/write-catpost.component';
 import { WriteDogpostComponent } from './modules/main/write-post/write-dogpost/write-dogpost.component';
 import { WriteEtcPostComponent } from './modules/main/write-post/write-etc-post/write-etc-post.component';
-import { BarcodeComponent } from './modules/barcode/barcode.component';
+import { BarcodeComponent } from './shared/components/barcode/barcode.component';
 
 const routes: Routes = [
   {
